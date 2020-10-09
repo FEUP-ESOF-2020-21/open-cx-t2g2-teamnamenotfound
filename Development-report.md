@@ -25,10 +25,11 @@ So far, contributions are exclusively made by the initial team, but we hope to o
 Please contact us! 
 
 Thank you!
-
-*team members names*
-
----
+* [Diogo Nunes](https://github.com/diogoabnunes)
+* [Diogo Santos](complete)
+* [Jéssica Nascimento](complete)
+* [João Vítor Fernandes](complete)
+* [Marina Dias](complete)
 
 ## Product Vision
 Start by defining a clear and concise vision for your module, to help members of the team, contributors, and users into focusing their often disparate views into a concise, visual, and short textual form. It provides a "high concept" of the product for marketers, developers, and managers.
@@ -152,7 +153,7 @@ A good practice is to simplify this, avoiding repetitions, and automating the te
 ---
 ## Configuration and change management
 
-Configuration and change management are key activities to control change to, and maintain the integrity of, a project�s artifacts (code, models, documents).
+Configuration and change management are key activities to control change to, and maintain the integrity of, a projects artifacts (code, models, documents).
 
 For the purpose of ESOF, we will use a very simple approach, just to manage feature requests, bug fixes, and improvements, using GitHub issues and following the [GitHub flow](https://guides.github.com/introduction/flow/).
 
