@@ -37,7 +37,8 @@ We want to provide our users the best possible conferences, despite the current 
 ---
 ## Elevator Pitch
 
-Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
+During this rough times, have you found yourself worried about reserving your place for an opportunity of personal and professional growth?
+Well, with our app you can save a spot in all the conferences that you want to go., you need only to register with your google account and we'll send you a qr code with all the details , and you will even be able to submit a review about the conference's safety,hygiene etc.
 
 ---
 ## Requirements
