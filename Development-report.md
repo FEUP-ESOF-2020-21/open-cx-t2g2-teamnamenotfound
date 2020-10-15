@@ -32,13 +32,13 @@ Thank you!
 * [Marina Dias](https://github.com/marinuas)
 
 ## Product Vision
-We want to provide our users the best possible conferences, despite the current situation, the restrictions that this implies and reducing non attendees priority selection to future conferences.
+In spite of the current situation, with this app we want to be able to provide our users the best possible conferences reducing non attendees priority selection to future conferences.
 
 ---
 ## Elevator Pitch
 
 During this rough times, have you found yourself worried about reserving your place for an opportunity of personal and professional growth?
-Well, with our app you can save a spot in all the conferences that you want to go., you need only to register with your google account and we'll send you a qr code with all the details , and you will even be able to submit a review about the conference's safety,hygiene etc.
+Well, with our app you can save a spot in all the conferences that you want to go, you need only to register with your google account and we'll send you a qr code with all the details , and you will even be able to submit a review about the conference's safety,hygiene etc.
 
 ---
 ## Requirements
