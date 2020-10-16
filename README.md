@@ -65,6 +65,17 @@ Briefly describe each use case mentioning the following:
 * **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
 
 ### User stories
+
+* As a user, I want to be able to see all the conferences info so that I can choose the best option.
+* As a user, I want to be able to reserve a spot in a conference so that I can avoid leave home, remainig safely.
+* As a user, I want to be able to cancel the reservation so that other users can go.
+* As a user, I want to be able to evaluate the conference so that users are aware of its condition.
+
+* As a organizer, I want to be able to insert a conference and respective info so that users can reserve a spot.
+* As a organizer, I want to be able to delete a conference so that users are aware of the cancelation.
+
+
+
 This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
 
 For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
