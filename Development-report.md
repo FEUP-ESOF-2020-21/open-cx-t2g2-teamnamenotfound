@@ -49,7 +49,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### Use case diagram 
 
-(./images/use_cases.png)
+![Use Cases diagram](/images/use_cases.png)
 
 Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
 
