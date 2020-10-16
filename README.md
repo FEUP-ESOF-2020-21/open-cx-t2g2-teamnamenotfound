@@ -38,7 +38,7 @@ In spite of the current situation, with Safe Meetings we want to be able to prov
 ## Elevator Pitch
 
 During this rough times, have you found yourself worried about reserving your place for an opportunity of personal and professional growth?
-Well, with Safe Meetings you can save a spot in all the conferences that you want to go, you need only to make a rapid register, and you will even be able to submit a review about the conference's safety, hygiene, etc.
+Well, with Safe Meetings you can save a spot in all the conferences that you want to go, you need only to do a quick registration and we'll handle the rest, you will even be able to submit a review about the conference's safety, hygiene, etc.
 
 ---
 ## Requirements
