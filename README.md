@@ -32,13 +32,13 @@ Thank you!
 * [Marina Dias](https://github.com/marinuas)
 
 ## Product Vision
-In spite of the current situation, with this app we want to be able to provide our users the best possible conferences reducing non attendees priority selection to future conferences.
+In spite of the current situation, with Safe Meetings we want to be able to provide our users the best possible conferences reducing non attendees priority selection to future conferences.
 
 ---
 ## Elevator Pitch
 
 During this rough times, have you found yourself worried about reserving your place for an opportunity of personal and professional growth?
-Well, with our app you can save a spot in all the conferences that you want to go, you need only to register with your google account and we'll send you a qr code with all the details, and you will even be able to submit a review about the conference's safety, hygiene, etc.
+Well, with Safe Meetings you can save a spot in all the conferences that you want to go, you need only to make a rapid register, and you will even be able to submit a review about the conference's safety, hygiene, etc.
 
 ---
 ## Requirements
@@ -71,7 +71,7 @@ For each theme, or role, you may add a small description. User stories should be
 
 A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
 
-*As a < user role >, I want < goal > so that < reason >.*
+*As a < user role >, I want < goal > so that < reason >.* 
 
 
 **INVEST in good user stories**. 
