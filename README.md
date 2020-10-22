@@ -52,19 +52,22 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 ![Use Cases diagram](/images/use_cases.png)
 
 **See Conference Info**
-*Actor:* User/Organizer
-*Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information, in order to see more info about their he should touch in one of the conferences and all the info available will be displayed.
-*Normal Flow:* run the app and then select a conference.
+
+* *Actor:* User/Organizer
+* *Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information, in order to see more info about their he should touch in one of the conferences and all the info available will be displayed.
+* *Normal Flow:* run the app and then select a conference.
 
 **Search Conference**
-*Actor:* User/Organizer
-*Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information. If the user wants he can search for a specific conference that respects the parameters specified by the user in the search.
-*Normal Flow:* run the app and then select the search option.
+
+* *Actor:* User/Organizer
+* *Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information. If the user wants he can search for a specific conference that respects the parameters specified by the user in the search.
+* *Normal Flow:* run the app and then select the search option.
 
 **Evaluate Conference**
-*Actor:* User
-*Description:* When the user wntas to evaluate a conference he should select the desired one and then touch the button "Evaluate Conference" that will ask for a token that only the users that attended the conference will have, and then a form with some questions that will evaluate the conference will be displayed then the user should submit it.
-*Normal Flow:* The user selects the conference, then the "Evaluate Conference" button and answer the form.
+
+* *Actor:* User
+* *Description:* When the user wntas to evaluate a conference he should select the desired one and then touch the button "Evaluate Conference" that will ask for a token that only the users that attended the conference will have, and then a form with some questions that will evaluate the conference will be displayed then the user should submit it.
+* *Normal Flow:* The user selects the conference, then the "Evaluate Conference" button and answer the form.
 
 ### User stories
 
