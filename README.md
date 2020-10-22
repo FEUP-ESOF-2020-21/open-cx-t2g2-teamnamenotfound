@@ -51,18 +51,20 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ![Use Cases diagram](/images/use_cases.png)
 
-Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
+**See Conference Info**
+*Actor:* User/Organizer
+*Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information, in order to see more info about their he should touch in one of the conferences and all the info available will be displayed.
+*Normal Flow:* run the app and then select a conference.
 
-Give each use case a concise, results-oriented name. Use cases should reflect the tasks the user needs to be able to accomplish using the system. Include an action verb and a noun. 
+**Search Conference**
+*Actor:* User/Organizer
+*Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information. If the user wants he can search for a specific conference that respects the parameters specified by the user in the search.
+*Normal Flow:* run the app and then select the search option.
 
-Briefly describe each use case mentioning the following:
-
-* **Actor**. Name only the actor that will be initiating this use case, i.e. a person or other entity external to the software system being specified who interacts with the system and performs use cases to accomplish tasks. 
-* **Description**. Provide a brief description of the reason for and outcome of this use case, or a high-level description of the sequence of actions and the outcome of executing the use case. 
-* **Preconditions and Postconditions**. Include any activities that must take place, or any conditions that must be true, before the use case can be started (preconditions). Describe also the state of the system at the conclusion of the use case execution (postconditions). 
-
-* **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system. 
-* **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
+**Evaluate Conference**
+*Actor:* User
+*Description:* When the user wntas to evaluate a conference he should select the desired one and then touch the button "Evaluate Conference" that will ask for a token that only the users that attended the conference will have, and then a form with some questions that will evaluate the conference will be displayed then the user should submit it.
+*Normal Flow:* The user selects the conference, then the "Evaluate Conference" button and answer the form.
 
 ### User stories
 This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
