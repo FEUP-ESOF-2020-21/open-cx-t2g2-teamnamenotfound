@@ -55,34 +55,38 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 * *Actor:* User/Organizer
 * *Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information, in order to see more info about their he should touch in one of the conferences and all the info available will be displayed.
-* *Normal Flow:* run the app and then select a conference.
+* *Normal Flow:* Run the app and then select a conference.
 
 **Search Conference**
 
 * *Actor:* User/Organizer
 * *Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information. If the user wants he can search for a specific conference that respects the parameters specified by the user in the search.
-* *Normal Flow:* run the app and then select the search option.
+* *Normal Flow:* Run the app and then select the search option.
 
 **Evaluate Conference**
 
 * *Actor:* User
-* *Description:* When the user wntas to evaluate a conference he should select the desired one and then touch the button "Evaluate Conference" that will ask for a token that only the users that attended the conference will have, and then a form with some questions that will evaluate the conference will be displayed then the user should submit it.
-* *Normal Flow:* The user selects the conference, then the "Evaluate Conference" button and answer the form.
+* *Description:* By the end of each conference a code will be given to the attendees so that they can evaluate the conference.
+* *Normal Flow:* The user scans with his phone the code which should lead them to a form, that in the end they must submit so that their evaluation is saved.
 
 ### User stories
 
 * As a user, I want to be able to see all the conferences info so that I can choose the best option.
   - *Mockup*
+  ![Initial Screen](/images/mockup_initial_screen.png)
+  ![Info Screen](/images/mockup_info_screen.png)
   - *Acceptance tests*
   - **Value and effort**: M
 
 * As a user, I want to be able to evaluate the conference so that users are aware of its condition.
   - *Mockup*
+  ![Evaluate Screen](/images/mockup_evaluate_screen.png)
   - *Acceptance tests*
   - **Value and effort**: L
 
 * As a user, I want to be able to search for a conference by their rating in each parameter, so that I'm aware about the conference conditions.
   - *Mockup*
+  ![Search Screen](/images/mockup_search_screen.png)
   - *Acceptance tests*
   - **Value and effort**: L
 
