@@ -73,21 +73,30 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 * As a user, I want to be able to see all the conferences info so that I can choose the best option.
   - *Mockup*
-  ![Initial Screen](/images/mockup_initial_screen.png)
-  ![Info Screen](/images/mockup_info_screen.png)
+
+    ![Initial Screen](/images/mockup_initial_screen.png)
+    ![Info Screen](/images/mockup_info_screen.png)
+
   - *Acceptance tests*
+
   - **Value and effort**: M
 
 * As a user, I want to be able to evaluate the conference so that users are aware of its condition.
   - *Mockup*
-  ![Evaluate Screen](/images/mockup_evaluate_screen.png)
+
+    ![Evaluate Screen](/images/mockup_evaluate_screen.png)
+
   - *Acceptance tests*
+
   - **Value and effort**: L
 
 * As a user, I want to be able to search for a conference by their rating in each parameter, so that I'm aware about the conference conditions.
   - *Mockup*
-  ![Search Screen](/images/mockup_search_screen.png)
+  
+    ![Search Screen](/images/mockup_search_screen.png)
+
   - *Acceptance tests*
+
   - **Value and effort**: L
 
 **User interface mockups**.
