@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "180226063495",
+    "firebase_url": "https://conferences---safe-meetings.firebaseio.com",
+    "project_id": "conferences---safe-meetings",
+    "storage_bucket": "conferences---safe-meetings.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180226063495:android:b0193ba0345366e7c58c22",
+        "android_client_info": {
+          "package_name": "com.example.safe_meetings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180226063495-ls4fubnns2cfjsjg7or1tre7605tb75t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmft5N0pvmTgAFrw19cHCiT-gY2BkTapM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180226063495-ls4fubnns2cfjsjg7or1tre7605tb75t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
