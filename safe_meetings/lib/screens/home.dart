@@ -25,6 +25,7 @@ class _HomeState extends State<Home> {
             )
             ],
       ),
+      backgroundColor: Colors.green[50],
       body: GridView.count(
         padding: EdgeInsets.all(20),
         crossAxisSpacing: 10,
