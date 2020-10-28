@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:safe_meetings/screens/home.dart';
+import 'package:safe_meetings/screens/loading.dart';
 import 'package:safe_meetings/screens/see_info.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SeeInfo(),
+      home: Loading(),
     );
   }
 }
