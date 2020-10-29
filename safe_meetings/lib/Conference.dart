@@ -1,5 +1,4 @@
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
 import 'package:safe_meetings/database.dart';
 
 class Conference{
@@ -23,6 +22,10 @@ class Conference{
 
   void setId(atabaseReference){
     this._id = databaseReference;
+  }
+
+  String getName() {
+    return this._name;
   }
 
   Map<String, dynamic> toJson(){
