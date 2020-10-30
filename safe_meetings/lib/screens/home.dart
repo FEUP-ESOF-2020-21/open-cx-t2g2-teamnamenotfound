@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safe_meetings/Conference.dart';
+import 'package:safe_meetings/conference.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -27,7 +27,8 @@ class _HomeState extends State<Home> {
       confs.add(
         FlatButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/see_info', arguments: conferences[i]);
+            Navigator.pushNamed(context, '/see_info',
+                arguments: conferences[i]);
           },
           child: Center(child: Text(conferences[i].getName())),
           color: Colors.grey[300],
