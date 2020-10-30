@@ -11,10 +11,11 @@ DatabaseReference updateConference(Conference conference) {
 }
 
 Future<List<Conference>> getConferences() async {
-  DataSnapshot dataSnapshot = await databaseReference.child('conferences/').once();
+  DataSnapshot dataSnapshot =
+      await databaseReference.child('conferences/').once();
   List<Conference> conferences = [];
 
-  if(dataSnapshot.value != null) {
+  if (dataSnapshot.value != null) {
     dataSnapshot.value.forEach((key, value) {
       Conference conference = createConference(value);
       conference.setId(databaseReference.child('posts/' + key));
@@ -23,4 +24,4 @@ Future<List<Conference>> getConferences() async {
   }
 
   return conferences;
-} 
+}

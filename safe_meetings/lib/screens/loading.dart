@@ -9,7 +9,6 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-
   void loadConferences() async {
     List<Conference> conferences = await getConferences();
 
@@ -28,7 +27,7 @@ class _LoadingState extends State<Loading> {
     return Container(
       color: Colors.green[100],
       child: Center(
-        child:  SpinKitCubeGrid(
+        child: SpinKitCubeGrid(
           color: Colors.green,
           size: 50.0,
         ),
