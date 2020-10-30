@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:safe_meetings/Conference.dart';
+import 'package:safe_meetings/conference.dart';
 import 'package:safe_meetings/database.dart';
 
 class Loading extends StatefulWidget {
@@ -26,7 +26,7 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green[50],
+      color: Colors.green[100],
       child: Center(
         child:  SpinKitCubeGrid(
           color: Colors.green,

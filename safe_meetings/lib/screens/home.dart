@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safe_meetings/Conference.dart';
+import 'package:safe_meetings/conference.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,9 +8,12 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<Conference> conferences = [];
-  // int hygien_filter = 0;
-  // int interest_filter = 0;
-  // int security_filter = 0;
+
+  // Filters
+  String title = "";
+  int hygien_filter = 0;
+  int interest_filter = 0;
+  int security_filter = 0;
 
   // void changeFilters(int hygien, int interest, int security) {
   //   setState(() {
@@ -23,16 +26,24 @@ class _HomeState extends State<Home> {
   List<Widget> showConfs() {
     List<Widget> confs = [];
 
-    for (int i = 0; i < conferences.length; i++)
-      confs.add(
-        FlatButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/see_info', arguments: conferences[i]);
-          },
-          child: Center(child: Text(conferences[i].getName())),
-          color: Colors.grey[300],
-        ),
-      );
+    for (int i = 0; i < conferences.length; i++) {
+      if (conferences[i].getHygien() >= this.hygien_filter &&
+          conferences[i].getSecurity() >= this.security_filter &&
+          conferences[i].getInterest() >= this.interest_filter &&
+          (conferences[i].getName() == this.title || this.title == "")) {
+        
+        confs.add(
+          FlatButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/see_info',
+                  arguments: conferences[i]);
+            },
+            child: Center(child: Text(conferences[i].getName())),
+            color: Colors.grey[200],
+          ),
+        );
+      }
+    }
 
     return confs;
   }
@@ -61,7 +72,7 @@ class _HomeState extends State<Home> {
               )
         ],
       ),
-      backgroundColor: Colors.green[50],
+      backgroundColor: Colors.green[100],
       body: GridView.count(
         padding: EdgeInsets.all(20),
         crossAxisSpacing: 10,

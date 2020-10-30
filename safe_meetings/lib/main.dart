@@ -11,6 +11,7 @@ class SafeMeetings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Safe Meetings',
       theme: ThemeData(
         primarySwatch: Colors.green, // tema da nossa app

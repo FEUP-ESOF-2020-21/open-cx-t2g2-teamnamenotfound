@@ -1,5 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
-import 'package:safe_meetings/Conference.dart';
+import 'package:safe_meetings/conference.dart';
 
 final databaseReference = FirebaseDatabase.instance.reference();
 
