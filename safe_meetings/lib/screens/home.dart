@@ -24,11 +24,11 @@ class _HomeState extends State<Home> {
   List<Widget> showConfs() {
     List<Widget> confs = [];
 
-    for (int i = 1; i < conferences.length; i++)
+    for (int i = 0; i < conferences.length; i++)
       confs.add(
         FlatButton(
           onPressed: () {
-            print("touched " + conferences[i].getName());
+            Navigator.pushNamed(context, '/see_info', arguments: conferences[i]);
           },
           child: Center(child: Text(conferences[i].getName())),
           color: Colors.grey[300],

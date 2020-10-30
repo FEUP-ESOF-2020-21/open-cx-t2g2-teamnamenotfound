@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safe_meetings/screens/home.dart';
 import 'package:safe_meetings/screens/loading.dart';
+import 'package:safe_meetings/screens/see_info.dart';
 
 void main() {
   runApp(SafeMeetings());
@@ -19,6 +20,7 @@ class SafeMeetings extends StatelessWidget {
       routes: {
         '/loading': (context) => Loading(),
         '/home': (context) => Home(),
+        '/see_info': (context) => SeeInfo(),
         // faltam os outros
       },
     );
