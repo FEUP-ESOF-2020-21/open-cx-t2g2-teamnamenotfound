@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safe_meetings/conference.dart';
+import 'package:safe_meetings/Conference.dart';
 import 'package:safe_meetings/screens/search_menu.dart';
 
 class Home extends StatefulWidget {
