@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "180226063495-rcq3tno7ovj68t37v59qksjg3chn1fs6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.safe_meetings",
+            "certificate_hash": "17e6c2d5a2c551cd937b2f3bdd92a0a555ef86ca"
+          }
+        },
+        {
           "client_id": "180226063495-ls4fubnns2cfjsjg7or1tre7605tb75t.apps.googleusercontent.com",
           "client_type": 3
         }

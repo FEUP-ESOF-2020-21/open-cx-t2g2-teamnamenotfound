@@ -31,7 +31,6 @@ class _HomeState extends State<Home> {
           conferences[i].getSecurity() >= this.security_filter &&
           conferences[i].getInterest() >= this.interest_filter &&
           (conferences[i].getName() == this.title || this.title == "")) {
-        
         confs.add(
           FlatButton(
             onPressed: () {
@@ -72,6 +71,21 @@ class _HomeState extends State<Home> {
               )
         ],
       ),
+      bottomNavigationBar: BottomAppBar(
+          child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/sign_in',
+                );
+              },
+              child: Text('Sign in to join conferences',
+                  style: TextStyle(color: Colors.black, fontSize: 15)))
+        ],
+      )),
       backgroundColor: Colors.green[100],
       body: GridView.count(
         padding: EdgeInsets.all(20),

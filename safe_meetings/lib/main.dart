@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:safe_meetings/screens/home.dart';
 import 'package:safe_meetings/screens/loading.dart';
 import 'package:safe_meetings/screens/see_info.dart';
+import 'package:safe_meetings/screens/sign_in.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(SafeMeetings());
 }
 
@@ -22,6 +26,7 @@ class SafeMeetings extends StatelessWidget {
         '/loading': (context) => Loading(),
         '/home': (context) => Home(),
         '/see_info': (context) => SeeInfo(),
+        '/sign_in': (context) => SignIn(),
         // faltam os outros
       },
     );
