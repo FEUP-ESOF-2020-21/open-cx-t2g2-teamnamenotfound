@@ -13,26 +13,23 @@ class _SeeInfoState extends State<SeeInfo> {
 
   void selectStarColor(int val) {
     if (val == 5)
-      color = Colors.green;
+      color = Colors.green[600];
     else if (val >= 2 && val <= 4)
-      color = Colors.yellow;
+      color = Colors.yellow[600];
     else
-      color = Colors.red;
+      color = Colors.red[600];
   }
 
   Widget nameWidget() {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(children: [
-          Text("Title: ",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              )),
+        padding: const EdgeInsets.fromLTRB(16.0, 20.0, 16.0, 25.0),
+        child: Column(children: [
           Text(conference.getName(),
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 26,
+                fontWeight: FontWeight.w600,
+                color: Colors.green[900]
               )),
         ]),
       ),
@@ -46,8 +43,9 @@ class _SeeInfoState extends State<SeeInfo> {
         child: Row(children: [
           Text("Description: ",
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                fontSize: 18,
+                color: Colors.green[900]
               )),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -55,7 +53,8 @@ class _SeeInfoState extends State<SeeInfo> {
               width: 200,
               child: Text(conference.getDescription(),
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 16,
+                    color: Colors.green[900]
                   )),
             ),
           ),
@@ -71,12 +70,14 @@ class _SeeInfoState extends State<SeeInfo> {
         child: Row(children: [
           Text("Date: ",
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                fontSize: 18,
+                color: Colors.green[900]
               )),
           Text(conference.getDate(),
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 16,
+                color: Colors.green[900]
               )),
         ]),
       ),
@@ -92,8 +93,9 @@ class _SeeInfoState extends State<SeeInfo> {
       child: Row(children: [
         Text("Hygien: ",
             style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+              color: Colors.green[900]
             )),
         for (int i = 0; i < conference.getHygien(); i++)
           Icon(Icons.star, color: this.color),
@@ -109,8 +111,9 @@ class _SeeInfoState extends State<SeeInfo> {
       child: Row(children: [
         Text("Security: ",
             style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+              color: Colors.green[900]
             )),
         for (int i = 0; i < conference.getSecurity(); i++)
           Icon(Icons.star, color: this.color),
@@ -126,8 +129,9 @@ class _SeeInfoState extends State<SeeInfo> {
       child: Row(children: [
         Text("Interest: ",
             style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+              color: Colors.green[900]
             )),
         for (int i = 0; i < conference.getInterest(); i++)
           Icon(Icons.star, color: this.color),
@@ -139,13 +143,12 @@ class _SeeInfoState extends State<SeeInfo> {
   Widget build(BuildContext context) {
     // gets the conferences passes by the loading screen
     conference = ModalRoute.of(context).settings.arguments;
-
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text('Safe Meetings'),
+        backgroundColor: Colors.green[300],
+        title: Text('Safe Meetings', /*style: TextStyle(color: Colors.green[800]),*/),
       ),
-      backgroundColor: Colors.green[100],
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           this.nameWidget(),

@@ -25,10 +25,10 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green[100],
+      color: Colors.green[50],
       child: Center(
         child: SpinKitCubeGrid(
-          color: Colors.green,
+          color: Colors.green[800],
           size: 50.0,
         ),
       ),

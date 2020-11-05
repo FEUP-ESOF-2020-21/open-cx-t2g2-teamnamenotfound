@@ -13,7 +13,9 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Column(
+        alignment: Alignment.center,
+        color: Colors.green[50],
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -22,8 +24,8 @@ class _SignInState extends State<SignIn> {
                   await auth.googleSignIn();
                 },
                 icon: Image.asset('images/google/google_logo.png'),
-                label: Text('Sign in with Google')),
-          ],
+                label: Text('Sign in with Google',style: TextStyle(color: Colors.green[900], fontSize: 20)),
+            )],
         ),
       ),
     );

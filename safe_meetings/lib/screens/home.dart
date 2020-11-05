@@ -37,8 +37,8 @@ class _HomeState extends State<Home> {
               Navigator.pushNamed(context, '/see_info',
                   arguments: conferences[i]);
             },
-            child: Center(child: Text(conferences[i].getName())),
-            color: Colors.grey[200],
+            child: Center(child: Text(conferences[i].getName(), style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400))),
+            color: Colors.green[300],
           ),
         );
       }
@@ -54,17 +54,17 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Safe Meetings'),
-        backgroundColor: Colors.green,
+        title: Text('Safe Meetings', style: TextStyle(color: Colors.green[800])),
+        backgroundColor: Colors.green[50],
         actions: [
           IconButton(
             icon: Icon(Icons.refresh),
-            color: Colors.white,
+            color: Colors.green[800],
             onPressed: () {}, // it should refresh the home screen
           ),
           IconButton(
               icon: Icon(Icons.search),
-              color: Colors.white,
+              color: Colors.green[800],
               onPressed: () {
                 // SearchMenu(this.changeFilters);
               } // it should open the search menu
@@ -72,6 +72,7 @@ class _HomeState extends State<Home> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
+          color: Colors.green[50],
           child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -83,10 +84,10 @@ class _HomeState extends State<Home> {
                 );
               },
               child: Text('Sign in to join conferences',
-                  style: TextStyle(color: Colors.black, fontSize: 15)))
+                  style: TextStyle(color: Colors.green[900], fontSize: 16)))
         ],
       )),
-      backgroundColor: Colors.green[100],
+      backgroundColor: Colors.white,
       body: GridView.count(
         padding: EdgeInsets.all(20),
         crossAxisSpacing: 10,
