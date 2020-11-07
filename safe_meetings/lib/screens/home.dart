@@ -26,6 +26,8 @@ class _HomeState extends State<Home> {
 
       if(this.titleFilter != "" || this.hygienFilter != 0 || this.interestFilter != 0 || this.securityFilter != 0)
         this.filterReset = false;
+      else  
+        this.filterReset = true;
     });
   }
 
@@ -65,6 +67,17 @@ class _HomeState extends State<Home> {
     }
 
     return confs;
+  }
+
+  Widget filtersButton() {
+    if(!this.filterReset)
+      return ElevatedButton(onPressed: () {
+        setState(() {
+          this.resetFilters();
+        });
+      }, child: Text("Reset Filters"));
+    else 
+      return null;
   }
 
   @override
@@ -118,6 +131,7 @@ class _HomeState extends State<Home> {
         crossAxisCount: 2,
         children: this.showConfs(),
       ),
+      floatingActionButton: this.filtersButton(),
     );
   }
 }
