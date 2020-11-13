@@ -10,34 +10,56 @@ class _HomeState extends State<Home> {
   List<Conference> conferences = [];
 
   // Filters
-  String title = "";
-  int hygien_filter = 0;
-  int interest_filter = 0;
-  int security_filter = 0;
+  String titleFilter = "";
+  int hygienFilter = 0;
+  int interestFilter = 0;
+  int securityFilter = 0;
 
-  // void changeFilters(int hygien, int interest, int security) {
-  //   setState(() {
-  //     this.hygien_filter = hygien;
-  //     this.interest_filter = interest;
-  //     this.security_filter = security;
-  //   });
-  // }
+  bool filterReset = true;
+
+  void changeFilters(dynamic filters) {
+    setState(() {
+      this.titleFilter = filters['titleFilter'];
+      this.hygienFilter = filters['hygienFilter'];
+      this.interestFilter = filters['interestFilter'];
+      this.securityFilter = filters['securityFilter'];
+
+      if(this.titleFilter != "" || this.hygienFilter != 0 || this.interestFilter != 0 || this.securityFilter != 0)
+        this.filterReset = false;
+      else  
+        this.filterReset = true;
+    });
+  }
+
+  void resetFilters() {
+    this.titleFilter = "";
+    this.hygienFilter = 0;
+    this.interestFilter = 0;
+    this.securityFilter = 0;
+
+    this.filterReset = true;
+  }
 
   List<Widget> showConfs() {
     List<Widget> confs = [];
 
     for (int i = 0; i < conferences.length; i++) {
-      if (conferences[i].getHygien() >= this.hygien_filter &&
-          conferences[i].getSecurity() >= this.security_filter &&
-          conferences[i].getInterest() >= this.interest_filter &&
-          (conferences[i].getName() == this.title || this.title == "")) {
+      if (conferences[i].getHygien() >= this.hygienFilter &&
+          conferences[i].getSecurity() >= this.securityFilter &&
+          conferences[i].getInterest() >= this.interestFilter &&
+          (conferences[i].getName() == this.titleFilter || this.titleFilter == "")) {
         confs.add(
           FlatButton(
             onPressed: () {
               Navigator.pushNamed(context, '/see_info',
                   arguments: conferences[i]);
             },
-            child: Center(child: Text(conferences[i].getName(), style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400))),
+            child: Center(
+                child: Text(conferences[i].getName(),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400))),
             color: Colors.green[300],
           ),
         );
@@ -47,6 +69,17 @@ class _HomeState extends State<Home> {
     return confs;
   }
 
+  Widget filtersButton() {
+    if(!this.filterReset)
+      return ElevatedButton(onPressed: () {
+        setState(() {
+          this.resetFilters();
+        });
+      }, child: Text("Reset Filters"));
+    else 
+      return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     // gets the conferences passes by the loading screen
@@ -54,7 +87,8 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Safe Meetings', style: TextStyle(color: Colors.green[800])),
+        title:
+            Text('Safe Meetings', style: TextStyle(color: Colors.green[800])),
         backgroundColor: Colors.green[50],
         actions: [
           IconButton(
@@ -65,7 +99,10 @@ class _HomeState extends State<Home> {
           IconButton(
               icon: Icon(Icons.search),
               color: Colors.green[800],
-              onPressed: () {
+              onPressed: () async {
+                dynamic filters = await Navigator.pushNamed(context, '/search_menu');
+                if(filters != null) this.changeFilters(filters);
+                // print(filters);
                 // SearchMenu(this.changeFilters);
               } // it should open the search menu
               )
@@ -74,19 +111,19 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomAppBar(
           color: Colors.green[50],
           child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  '/sign_in',
-                );
-              },
-              child: Text('Sign in to join conferences',
-                  style: TextStyle(color: Colors.green[900], fontSize: 16)))
-        ],
-      )),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MaterialButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/sign_in',
+                    );
+                  },
+                  child: Text('Sign in to join conferences',
+                      style: TextStyle(color: Colors.green[900], fontSize: 16)))
+            ],
+          )),
       backgroundColor: Colors.white,
       body: GridView.count(
         padding: EdgeInsets.all(20),
@@ -95,6 +132,7 @@ class _HomeState extends State<Home> {
         crossAxisCount: 2,
         children: this.showConfs(),
       ),
+      floatingActionButton: this.filtersButton(),
     );
   }
 }
