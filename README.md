@@ -32,7 +32,7 @@ Thank you!
 * [Marina Dias](https://github.com/marinuas)
 
 ## Product Vision
-In spite of the current situation, with Safe Meetings we want to be able to provide our users the best possible conferences reducing non attendees priority selection to future conferences.
+With Safe Meetings we want to be able to provide our users the best possible conferences, while assuring their health safety in physical meetings.
 
 ---
 ## Elevator Pitch
