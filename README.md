@@ -56,18 +56,24 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * *Actor:* User/Organizer
 * *Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information, in order to see more info about their he should touch in one of the conferences and all the info available will be displayed.
 * *Normal Flow:* Run the app and then select a conference.
+* *Preconditions:* User must be in home screen and then select the desired conference.
+* *Posconditions:* User will be in the see info screen where it will be all the conference info.
 
 **Search Conference**
 
 * *Actor:* User/Organizer
-* *Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information. If the user wants he can search for a specific conference that respects the parameters specified by the user in the search.
+* *Description:* When the user/organizer runs the app it shows all the curent conferences registred and their general information. Users can search for a specific conference that respects the parameters specified by the user in the search.
 * *Normal Flow:* Run the app and then select the search option.
+* *Preconditions:* User must be in home screen.
+* *Posconditions:* After user touch the filter button the app will go to the home screen showing only the conferences that respect the desired filters.
 
 **Evaluate Conference**
 
 * *Actor:* User
 * *Description:* By the end of each conference a code will be given to the attendees so that they can evaluate the conference.
 * *Normal Flow:* The user scans with his phone the code which should lead them to a form, that in the end they must submit so that their evaluation is saved.
+* *Preconditions:* User must be in home screen.
+* *Posconditions:* After the user evaluate the desired conference the app will go to the home screen.
 
 ### User stories
 
