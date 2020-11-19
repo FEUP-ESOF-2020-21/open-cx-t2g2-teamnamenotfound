@@ -78,9 +78,50 @@ class _SeeInfoState extends State<SeeInfo> {
     );
   }
 
+  Widget hourwidget() {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(children: [
+          Text("Hour: ",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18,
+                  color: Colors.green[900]
+              )),
+          Text(conference.getHour(),
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.green[900]
+              )),
+        ]),
+      ),
+    );
+  }
+
+  Widget localWidget() {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(children: [
+          Text("Local: ",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18,
+                  color: Colors.green[900]
+              )),
+          Text(conference.getLocal(),
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.green[900]
+              )),
+        ]),
+      ),
+    );
+  }
+
   Widget hygienWidget() {
     this.selectStarColor(conference.getHygien());
-
     return Container(
         child: Padding(
       padding: const EdgeInsets.all(16.0),
@@ -150,6 +191,8 @@ class _SeeInfoState extends State<SeeInfo> {
                     this.nameWidget(),
                     this.descriptionWidget(),
                     this.datewidget(),
+                    this.hourwidget(),
+                    this.localWidget(),
                     this.hygienWidget(),
                     this.securityWidget(),
                     this.interestWidget(),
