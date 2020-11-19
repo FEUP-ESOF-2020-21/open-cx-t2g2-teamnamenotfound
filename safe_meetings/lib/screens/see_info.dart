@@ -23,7 +23,7 @@ class _SeeInfoState extends State<SeeInfo> {
   Widget nameWidget() {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16.0, 20.0, 16.0, 25.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(children: [
           Text(conference.getName(),
               style: TextStyle(

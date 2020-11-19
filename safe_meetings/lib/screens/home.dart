@@ -61,7 +61,8 @@ class _HomeState extends State<Home> {
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w400
-                    )
+                    ),
+                      textAlign: TextAlign.center,
                   )
             ),
             color: Colors.green[300],
@@ -91,6 +92,7 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
+        titleSpacing: 90,
         title:
             Text('Safe Meetings', style: TextStyle(color: Colors.green[800])),
         backgroundColor: Colors.green[50],
