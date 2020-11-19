@@ -4,8 +4,11 @@ import 'package:google_sign_in/google_sign_in.dart';
 class Authentication {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  bool _loggedIn = false;
 
-  Future<String> googleSignIn() async {
+  bool get loggedIn => _loggedIn;
+
+  Future<User> googleSignIn() async {
     final GoogleSignInAccount googleSignInAccount =
         await _googleSignIn.signIn();
     final GoogleSignInAuthentication googleSignInAuthentication =
@@ -19,18 +22,30 @@ class Authentication {
 
     assert(user.displayName != null && user.email != null);
     print(user.displayName);
-    print(user.email);
     print(user.refreshToken);
 
     final User currentUser = _firebaseAuth.currentUser;
     assert(currentUser.uid == user.uid);
 
-    return 'googleSignIn';
+    print("loggedIN = true");
+    _loggedIn = true;
+
+    return user;
   }
 
-  Future<String> googleSignOut() async {
-    _googleSignIn.signOut();
+  Future googleSignOut() async {
+    try {
+      await _firebaseAuth.signOut();
+      await _googleSignIn.signOut();
+      print("loggedIn = false");
+      _loggedIn = false;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 
-    return 'googleSignOut';
+  User getCurrentUser() {
+    return _firebaseAuth.currentUser;
   }
 }

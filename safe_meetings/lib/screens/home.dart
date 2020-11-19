@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safe_meetings/conference.dart';
+import 'package:safe_meetings/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,6 +19,8 @@ class _HomeState extends State<Home> {
 
   bool filterReset = true;
 
+  bool signedIn = false;
+
   void changeFilters(dynamic filters) {
     setState(() {
       this.titleFilter = filters['titleFilter'];
@@ -24,9 +28,12 @@ class _HomeState extends State<Home> {
       this.interestFilter = filters['interestFilter'];
       this.securityFilter = filters['securityFilter'];
 
-      if(this.titleFilter != "" || this.hygienFilter != 0 || this.interestFilter != 0 || this.securityFilter != 0)
+      if (this.titleFilter != "" ||
+          this.hygienFilter != 0 ||
+          this.interestFilter != 0 ||
+          this.securityFilter != 0)
         this.filterReset = false;
-      else  
+      else
         this.filterReset = true;
     });
   }
@@ -47,7 +54,8 @@ class _HomeState extends State<Home> {
       if (conferences[i].getHygien() >= this.hygienFilter &&
           conferences[i].getSecurity() >= this.securityFilter &&
           conferences[i].getInterest() >= this.interestFilter &&
-          (conferences[i].getName() == this.titleFilter || this.titleFilter == "")) {
+          (conferences[i].getName() == this.titleFilter ||
+              this.titleFilter == "")) {
         confs.add(
           FlatButton(
             onPressed: () {
@@ -70,13 +78,15 @@ class _HomeState extends State<Home> {
   }
 
   Widget filtersButton() {
-    if(!this.filterReset)
-      return ElevatedButton(onPressed: () {
-        setState(() {
-          this.resetFilters();
-        });
-      }, child: Text("Reset Filters"));
-    else 
+    if (!this.filterReset)
+      return ElevatedButton(
+          onPressed: () {
+            setState(() {
+              this.resetFilters();
+            });
+          },
+          child: Text("Reset Filters"));
+    else
       return null;
   }
 
@@ -100,15 +110,34 @@ class _HomeState extends State<Home> {
               icon: Icon(Icons.search),
               color: Colors.green[800],
               onPressed: () async {
-                dynamic filters = await Navigator.pushNamed(context, '/search_menu');
-                if(filters != null) this.changeFilters(filters);
+                dynamic filters =
+                    await Navigator.pushNamed(context, '/search_menu');
+                if (filters != null) this.changeFilters(filters);
                 // print(filters);
                 // SearchMenu(this.changeFilters);
               } // it should open the search menu
               )
         ],
       ),
-      bottomNavigationBar: BottomAppBar(
+      bottomNavigationBar: loginButton(context),
+      backgroundColor: Colors.white,
+      body: GridView.count(
+        padding: EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: this.showConfs(),
+      ),
+      floatingActionButton: this.filtersButton(),
+    );
+  }
+}
+
+Widget loginButton(BuildContext context) {
+  Authentication auth = Authentication();
+
+  return auth.loggedIn == true //this condition should change but doesn't
+      ? BottomAppBar(
           color: Colors.green[50],
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -123,16 +152,18 @@ class _HomeState extends State<Home> {
                   child: Text('Sign in to join conferences',
                       style: TextStyle(color: Colors.green[900], fontSize: 16)))
             ],
-          )),
-      backgroundColor: Colors.white,
-      body: GridView.count(
-        padding: EdgeInsets.all(20),
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        crossAxisCount: 2,
-        children: this.showConfs(),
-      ),
-      floatingActionButton: this.filtersButton(),
-    );
-  }
+          ))
+      : BottomAppBar(
+          color: Colors.green[50],
+          child: Row(
+            children: [
+              MaterialButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sign_out');
+                  },
+                  child: Text('Account info',
+                      style: TextStyle(color: Colors.green[900], fontSize: 16)))
+            ],
+          ),
+        );
 }
