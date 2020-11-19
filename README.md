@@ -37,8 +37,7 @@ With Safe Meetings we want to be able to provide our users the best possible con
 ---
 ## Elevator Pitch
 
-During this rough times, have you found yourself worried about reserving your place for an opportunity of personal and professional growth?
-Well, with Safe Meetings you can save a spot in all the conferences that you want to go, you need only to do a quick registration and we'll handle the rest, you will even be able to submit a review about the conference's safety, hygiene, etc.
+During this rough times, do you wonder if an opportunity of personal and professional growth is safe? Well, with Safe Meetings you can see how much safe is a conference that you want to go. Now, just go, enjoy and then tell us how it went by submitting a review!
 
 ---
 ## Requirements
