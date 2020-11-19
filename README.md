@@ -37,7 +37,7 @@ With Safe Meetings we want to be able to provide our users the best possible con
 ---
 ## Elevator Pitch
 
-During this rough times, do you wonder if an opportunity of personal and professional growth is safe? Well, with Safe Meetings you can see how much safe is a conference that you want to go. Now, just go, enjoy and then tell us how it went by submitting a review!
+During these rough times, do you wonder if an opportunity of personal and professional growth is safe? Well, with Safe Meetings you can see how safe is a conference that you want to go. Now, just go, enjoy and then tell us how it went by submitting a review!
 
 ---
 ## Requirements
