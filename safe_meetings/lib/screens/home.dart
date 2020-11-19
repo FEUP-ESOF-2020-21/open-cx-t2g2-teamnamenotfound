@@ -24,9 +24,12 @@ class _HomeState extends State<Home> {
       this.interestFilter = filters['interestFilter'];
       this.securityFilter = filters['securityFilter'];
 
-      if(this.titleFilter != "" || this.hygienFilter != 0 || this.interestFilter != 0 || this.securityFilter != 0)
+      if (this.titleFilter != "" ||
+          this.hygienFilter != 0 ||
+          this.interestFilter != 0 ||
+          this.securityFilter != 0)
         this.filterReset = false;
-      else  
+      else
         this.filterReset = true;
     });
   }
@@ -47,7 +50,8 @@ class _HomeState extends State<Home> {
       if (conferences[i].getHygien() >= this.hygienFilter &&
           conferences[i].getSecurity() >= this.securityFilter &&
           conferences[i].getInterest() >= this.interestFilter &&
-          (conferences[i].getName() == this.titleFilter || this.titleFilter == "")) {
+          (conferences[i].getName() == this.titleFilter ||
+              this.titleFilter == "")) {
         confs.add(
           FlatButton(
             onPressed: () {
@@ -55,16 +59,14 @@ class _HomeState extends State<Home> {
                   arguments: conferences[i]);
             },
             child: Center(
-                child:
-                  Text(conferences[i].getName(),
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400
-                    ),
-                      textAlign: TextAlign.center,
-                  )
-            ),
+                child: Text(
+              conferences[i].getName(),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400),
+              textAlign: TextAlign.center,
+            )),
             color: Colors.green[300],
           ),
         );
@@ -74,14 +76,22 @@ class _HomeState extends State<Home> {
     return confs;
   }
 
+  void updateConferences(dynamic updatedConferences) {
+    setState(() {
+      this.conferences = updatedConferences['conferences'];
+    });
+  }
+
   Widget filtersButton() {
-    if(!this.filterReset)
-      return ElevatedButton(onPressed: () {
-        setState(() {
-          this.resetFilters();
-        });
-      }, child: Text("Reset Filters"));
-    else 
+    if (!this.filterReset)
+      return ElevatedButton(
+          onPressed: () {
+            setState(() {
+              this.resetFilters();
+            });
+          },
+          child: Text("Reset Filters"));
+    else
       return null;
   }
 
@@ -101,16 +111,19 @@ class _HomeState extends State<Home> {
             icon: Icon(Icons.refresh),
             color: Colors.green[800],
             onPressed: () async {
-              await Navigator.pushReplacementNamed(context, '/loading');
+              dynamic updatedConferences =
+                  await Navigator.pushNamed(context, '/loading');
+              if (updatedConferences != null)
+                this.updateConferences(updatedConferences);
             },
           ),
           IconButton(
               icon: Icon(Icons.search),
               color: Colors.green[800],
               onPressed: () async {
-                dynamic filters = await Navigator.pushNamed(context, '/search_menu');
-                if(filters != null) this.changeFilters(filters);
-                // print(filters);
+                dynamic filters =
+                    await Navigator.pushNamed(context, '/search_menu');
+                if (filters != null) this.changeFilters(filters);
                 // SearchMenu(this.changeFilters);
               } // it should open the search menu
               )

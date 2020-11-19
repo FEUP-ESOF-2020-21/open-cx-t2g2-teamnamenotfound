@@ -3,14 +3,14 @@ import 'package:safe_meetings/conference.dart';
 
 final databaseReference = FirebaseDatabase.instance.reference();
 
-DatabaseReference updateConference(Conference conference) {
+DatabaseReference updateConferenceInDatabase(Conference conference) {
   var id = databaseReference.child('conferences/').push();
   id.set(conference.toJson());
 
   return id;
 }
 
-Future<List<Conference>> getConferences() async {
+Future<List<Conference>> getConferencesFromDatabase() async {
   DataSnapshot dataSnapshot =
       await databaseReference.child('conferences/').once();
   List<Conference> conferences = [];
