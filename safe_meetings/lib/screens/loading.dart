@@ -19,14 +19,10 @@ class _LoadingState extends State<Loading> {
     List<Conference> conferences = await getConferencesFromDatabase();
 
     // substitui o loading pelo home screen passando a info das conferences
-    if(!widget.refreshing){
-      print("not refreshing\n");
+    if(!widget.refreshing)
       Navigator.pushReplacementNamed(context, '/home', arguments: conferences);
-    }
-    else {
-      print("refreshing\n");
+    else
       Navigator.pop(context, {'conferences': conferences});
-    }
   }
 
   @override

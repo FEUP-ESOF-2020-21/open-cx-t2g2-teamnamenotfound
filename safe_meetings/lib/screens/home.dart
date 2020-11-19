@@ -7,6 +7,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool start = true;
+
   List<Conference> conferences = [];
 
   // Filters
@@ -97,8 +99,12 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    // gets the conferences passes by the loading screen
-    conferences = ModalRoute.of(context).settings.arguments;
+    if(this.start) {
+      this.start = false;
+      
+      // gets the conferences passes by the loading screen
+      conferences = ModalRoute.of(context).settings.arguments;
+    }
 
     return Scaffold(
       appBar: AppBar(
