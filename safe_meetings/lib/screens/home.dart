@@ -13,6 +13,7 @@ class _HomeState extends State<Home> {
 
   // Filters
   String titleFilter = "";
+  String localFilter = "";
   int hygienFilter = 0;
   int interestFilter = 0;
   int securityFilter = 0;
@@ -22,11 +23,13 @@ class _HomeState extends State<Home> {
   void changeFilters(dynamic filters) {
     setState(() {
       this.titleFilter = filters['titleFilter'];
+      this.localFilter = filters['localFilter'];
       this.hygienFilter = filters['hygienFilter'];
       this.interestFilter = filters['interestFilter'];
       this.securityFilter = filters['securityFilter'];
 
       if (this.titleFilter != "" ||
+          this.localFilter != "" ||
           this.hygienFilter != 0 ||
           this.interestFilter != 0 ||
           this.securityFilter != 0)
@@ -38,6 +41,7 @@ class _HomeState extends State<Home> {
 
   void resetFilters() {
     this.titleFilter = "";
+    this.localFilter = "";
     this.hygienFilter = 0;
     this.interestFilter = 0;
     this.securityFilter = 0;
@@ -49,11 +53,11 @@ class _HomeState extends State<Home> {
     List<Widget> confs = [];
 
     for (int i = 0; i < conferences.length; i++) {
-      if (conferences[i].getHygien() >= this.hygienFilter &&
+      if ((conferences[i].getName() == this.titleFilter || this.titleFilter == "" || conferences[i].getName().toLowerCase().contains(this.titleFilter.toLowerCase())) &&
+          (conferences[i].getLocal() == this.localFilter || this.localFilter == "" || conferences[i].getLocal().toLowerCase().contains(this.localFilter.toLowerCase())) &&
+          conferences[i].getHygien() >= this.hygienFilter &&
           conferences[i].getSecurity() >= this.securityFilter &&
-          conferences[i].getInterest() >= this.interestFilter &&
-          (conferences[i].getName() == this.titleFilter ||
-              this.titleFilter == "")) {
+          conferences[i].getInterest() >= this.interestFilter) {
         confs.add(
           FlatButton(
             onPressed: () {
