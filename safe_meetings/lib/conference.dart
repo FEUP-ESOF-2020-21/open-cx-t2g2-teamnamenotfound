@@ -5,21 +5,25 @@ class Conference {
   String _name;
   String _description;
   String _date;
+  String _hour;
+  String _local;
   List<int> _hygien, _interest, _security; // list with all the evaluations
 
   DatabaseReference _id;
 
-  Conference(name, description, date, hygien, interest, security) {
+  Conference(name, description, date, hour, local, hygien, interest, security) {
     this._name = name;
     this._description = description;
     this._date = date;
+    this._hour = hour;
+    this._local = local;
 
     this._hygien = hygien;
     this._interest = interest;
     this._security = security;
   }
 
-  void setId(atabaseReference) {
+  void setId(databaseReference) {
     this._id = databaseReference;
   }
 
@@ -33,6 +37,14 @@ class Conference {
 
   String getDate() {
     return this._date;
+  }
+
+  String getHour() {
+    return this._hour;
+  }
+
+  String getLocal() {
+    return this._local;
   }
 
   int getHygien() {
@@ -76,6 +88,8 @@ class Conference {
       'name': this._name,
       'description': this._description,
       'date': this._date,
+      'hour': this._hour,
+      'local': this._local,
       'hygien': this._hygien,
       'interest': this._interest,
       'security': this._security
@@ -88,6 +102,8 @@ Conference createConference(record) {
     'name': '',
     'description': '',
     'date': '',
+    'hour': '',
+    'local': '',
     'hygien': [],
     'interest': [],
     'security': []
@@ -99,6 +115,8 @@ Conference createConference(record) {
       attr['name'],
       attr['description'],
       attr['date'],
+      attr['hour'],
+      attr['local'],
       convertFromDynamicToIntList(attr['hygien']),
       convertFromDynamicToIntList(attr['interest']),
       convertFromDynamicToIntList(attr['security']));

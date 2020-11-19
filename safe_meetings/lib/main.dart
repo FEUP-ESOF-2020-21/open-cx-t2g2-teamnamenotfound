@@ -22,9 +22,9 @@ class SafeMeetings extends StatelessWidget {
         primarySwatch: Colors.green, // tema da nossa app
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Loading(),
+      home: Loading(false),
       routes: {
-        '/loading': (context) => Loading(),
+        '/loading': (context) => Loading(true),
         '/home': (context) => Home(),
         '/see_info': (context) => SeeInfo(),
         '/sign_in': (context) => SignIn(),
