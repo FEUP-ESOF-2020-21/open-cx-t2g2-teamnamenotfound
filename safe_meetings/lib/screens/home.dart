@@ -55,11 +55,15 @@ class _HomeState extends State<Home> {
                   arguments: conferences[i]);
             },
             child: Center(
-                child: Text(conferences[i].getName(),
+                child:
+                  Text(conferences[i].getName(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
-                        fontWeight: FontWeight.w400))),
+                        fontWeight: FontWeight.w400
+                    )
+                  )
+            ),
             color: Colors.green[300],
           ),
         );
@@ -94,7 +98,9 @@ class _HomeState extends State<Home> {
           IconButton(
             icon: Icon(Icons.refresh),
             color: Colors.green[800],
-            onPressed: () {}, // it should refresh the home screen
+            onPressed: () async {
+              await Navigator.pushReplacementNamed(context, '/loading');
+            },
           ),
           IconButton(
               icon: Icon(Icons.search),

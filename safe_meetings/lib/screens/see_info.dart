@@ -39,18 +39,12 @@ class _SeeInfoState extends State<SeeInfo> {
   Widget descriptionWidget() {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: Row(children: [
-          Text("Description: ",
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 18,
-                color: Colors.green[900]
-              )),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              width: 200,
+              width: 350,
               child: Text(conference.getDescription(),
                   style: TextStyle(
                     fontSize: 16,
@@ -149,16 +143,20 @@ class _SeeInfoState extends State<SeeInfo> {
         title: Text('Safe Meetings', /*style: TextStyle(color: Colors.green[800]),*/),
       ),
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          this.nameWidget(),
-          this.descriptionWidget(),
-          this.datewidget(),
-          this.hygienWidget(),
-          this.securityWidget(),
-          this.interestWidget(),
-        ],
-      ),
-    );
+      body: ListView(padding: const EdgeInsets.all(8.0), children: [
+        Container(
+          child: Column(
+                  children: [
+                    this.nameWidget(),
+                    this.descriptionWidget(),
+                    this.datewidget(),
+                    this.hygienWidget(),
+                    this.securityWidget(),
+                    this.interestWidget(),
+            ],
+          ),
+        )
+      ]
+    ));
   }
 }
