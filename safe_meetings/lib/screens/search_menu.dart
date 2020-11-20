@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safe_meetings/date_time.dart';
 
 class SearchMenu extends StatefulWidget {
   @override
@@ -11,6 +12,8 @@ class _SearchMenuState extends State<SearchMenu> {
   int hygienFilter = 0;
   int securityFilter = 0;
   int interestFilter = 0;
+  DateTime startDate = DateTime.now();
+  DateTime endDate = DateTime(DateTime.now().year + 10, 12, 31);
 
   var color = Colors.green[900];
 
@@ -393,6 +396,34 @@ class _SearchMenuState extends State<SearchMenu> {
     );
   }
 
+  Widget displayStartDate() {
+    return Padding(padding: const EdgeInsets.all(8.0),
+      child: Column(children: [
+        Text("Start Date",
+            style: TextStyle(
+              fontSize: 20,
+              color: color,
+            )),
+        ListTile(title: Text("${startDate.year}-${startDate.month}-${startDate.day}"),
+        trailing: IconButton(icon: Icon(Icons.calendar_today), onPressed: () {this.pickDate(true);},),
+        )
+      ]));
+  }
+
+  Widget displayEndDate() {
+    return Padding(padding: const EdgeInsets.all(8.0),
+      child: Column(children: [
+        Text("End Date",
+            style: TextStyle(
+              fontSize: 20,
+              color: color,
+            )),
+        ListTile(title: Text("${endDate.year}-${endDate.month}-${endDate.day}"),
+        trailing: IconButton(icon: Icon(Icons.calendar_today), onPressed: () {this.pickDate(false);},),
+        )
+      ]));
+  }
+
   Widget displayFilterButton() {
     return ElevatedButton(
       onPressed: () {
@@ -401,11 +432,32 @@ class _SearchMenuState extends State<SearchMenu> {
           'localFilter': this.localFilter,
           'hygienFilter': this.hygienFilter,
           'interestFilter': this.interestFilter,
-          'securityFilter': this.securityFilter
+          'securityFilter': this.securityFilter,
+          'startDate': parseDateToString(this.startDate),
+          'endDate': parseDateToString(this.endDate),
         });
       },
       child: Text('Filter'),
     );
+  }
+
+  pickDate(bool start) async {
+    DateTime dateTime;
+
+    if(start) dateTime = this.startDate;
+    else dateTime = this.endDate;
+    DateTime ret = await showDatePicker(context: context,
+    firstDate: DateTime(DateTime.now().year - 20, 1, 1),
+    lastDate: DateTime(DateTime.now().year + 20, 12, 31),
+    initialDate: dateTime,
+    );
+
+    if(ret != null) {
+      setState(() {
+        if(start) this.startDate = ret;
+        else this.endDate = ret;
+      });
+    }
   }
 
   @override
@@ -439,6 +491,8 @@ class _SearchMenuState extends State<SearchMenu> {
                   ),
                 ),
                 this.displayTitleForm(),
+                this.displayStartDate(),
+                this.displayEndDate(),
                 this.displayLocalForm(),
                 this.displayHygienFilter(),
                 this.displaySecurityForm(),

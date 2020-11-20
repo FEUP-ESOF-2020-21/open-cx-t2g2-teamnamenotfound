@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:safe_meetings/conference.dart';
+import 'package:safe_meetings/date_time.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,6 +18,8 @@ class _HomeState extends State<Home> {
   int hygienFilter = 0;
   int interestFilter = 0;
   int securityFilter = 0;
+  int startDate = 0;
+  int endDate = -1;
 
   bool filterReset = true;
 
@@ -27,12 +30,19 @@ class _HomeState extends State<Home> {
       this.hygienFilter = filters['hygienFilter'];
       this.interestFilter = filters['interestFilter'];
       this.securityFilter = filters['securityFilter'];
+      this.startDate = parseDateToInt(filters['startDate']);
+      this.endDate = parseDateToInt(filters['endDate']);
+
+      print(this.startDate);
+      print(this.endDate);
 
       if (this.titleFilter != "" ||
           this.localFilter != "" ||
           this.hygienFilter != 0 ||
           this.interestFilter != 0 ||
-          this.securityFilter != 0)
+          this.securityFilter != 0 ||
+          this.startDate != 0 ||
+          this.endDate != -1)
         this.filterReset = false;
       else
         this.filterReset = true;
@@ -45,6 +55,8 @@ class _HomeState extends State<Home> {
     this.hygienFilter = 0;
     this.interestFilter = 0;
     this.securityFilter = 0;
+    this.startDate = 0;
+    this.endDate = -1;
 
     this.filterReset = true;
   }
@@ -57,7 +69,9 @@ class _HomeState extends State<Home> {
           (conferences[i].getLocal() == this.localFilter || this.localFilter == "" || conferences[i].getLocal().toLowerCase().contains(this.localFilter.toLowerCase())) &&
           conferences[i].getHygien() >= this.hygienFilter &&
           conferences[i].getSecurity() >= this.securityFilter &&
-          conferences[i].getInterest() >= this.interestFilter) {
+          conferences[i].getInterest() >= this.interestFilter &&
+          parseDateToInt(conferences[i].getDate()) >= this.startDate &&
+          (this.endDate == -1 || this.endDate >= parseDateToInt(conferences[i].getDate()))) {
         confs.add(
           FlatButton(
             onPressed: () {
@@ -112,7 +126,6 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        titleSpacing: 70,
         title:
             Text('Safe Meetings', style: TextStyle(color: Colors.green[800])),
         backgroundColor: Colors.green[50],
