@@ -28,6 +28,7 @@ class SafeMeetings extends StatelessWidget {
         '/home': (context) => Home(),
         '/see_info': (context) => SeeInfo(),
         '/sign_in': (context) => SignIn(),
+        '/sign_out': (context) => SignOut(),
         '/search_menu': (context) => SearchMenu(),
         // faltam os outros
       },
