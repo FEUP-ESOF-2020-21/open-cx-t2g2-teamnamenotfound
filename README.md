@@ -110,6 +110,9 @@ After the user story text, you should add a draft of the corresponding user inte
 **Acceptance tests**.
 For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
 
+**Map**
+ ![User Story Map](/images/Blank_diagram)
+
 
 ### Domain model
 
