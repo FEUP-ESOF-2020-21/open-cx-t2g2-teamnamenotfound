@@ -24,7 +24,7 @@ class _SignInState extends State<SignIn> {
                   borderRadius: new BorderRadius.circular(30.0)),
               onPressed: () async {
                 await auth.googleSignIn();
-                Navigator.pushNamed(context, '/loading');
+                Navigator.pop(context);
               },
               icon: Image.asset('images/google/google_logo.png'),
               label: Text('Sign in with Google',
@@ -58,7 +58,7 @@ class _SignOutState extends State<SignOut> {
             OutlineButton.icon(
               onPressed: () async {
                 await auth.googleSignOut();
-                Navigator.pushNamed(context, '/loading');
+                Navigator.pop(context);
               },
               shape: new RoundedRectangleBorder(
                   side: BorderSide(width: 1, style: BorderStyle.solid),

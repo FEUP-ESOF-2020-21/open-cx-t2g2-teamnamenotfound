@@ -7,7 +7,7 @@ class SearchMenu extends StatefulWidget {
 
 class _SearchMenuState extends State<SearchMenu> {
   String titleFilter = "";
-
+  String localFilter = "";
   int hygienFilter = 0;
   int securityFilter = 0;
   int interestFilter = 0;
@@ -29,6 +29,29 @@ class _SearchMenuState extends State<SearchMenu> {
             onChanged: (value) {
               setState(() {
                 this.titleFilter = value;
+              });
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget displayLocalForm() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Text("Local (empty = no filter)",
+              style: TextStyle(fontSize: 20, color: color)),
+          TextField(
+            decoration: InputDecoration(
+              hintText: 'title',
+              focusColor: Colors.white,
+            ),
+            onChanged: (value) {
+              setState(() {
+                this.localFilter = value;
               });
             },
           ),
@@ -375,6 +398,7 @@ class _SearchMenuState extends State<SearchMenu> {
       onPressed: () {
         Navigator.pop(context, {
           'titleFilter': this.titleFilter,
+          'localFilter': this.localFilter,
           'hygienFilter': this.hygienFilter,
           'interestFilter': this.interestFilter,
           'securityFilter': this.securityFilter
@@ -415,6 +439,7 @@ class _SearchMenuState extends State<SearchMenu> {
                   ),
                 ),
                 this.displayTitleForm(),
+                this.displayLocalForm(),
                 this.displayHygienFilter(),
                 this.displaySecurityForm(),
                 this.displayInterestForm(),

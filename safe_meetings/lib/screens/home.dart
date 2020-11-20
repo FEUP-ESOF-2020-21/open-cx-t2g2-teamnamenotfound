@@ -9,10 +9,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool start = true;
+
   List<Conference> conferences = [];
 
   // Filters
   String titleFilter = "";
+  String localFilter = "";
   int hygienFilter = 0;
   int interestFilter = 0;
   int securityFilter = 0;
@@ -24,11 +27,13 @@ class _HomeState extends State<Home> {
   void changeFilters(dynamic filters) {
     setState(() {
       this.titleFilter = filters['titleFilter'];
+      this.localFilter = filters['localFilter'];
       this.hygienFilter = filters['hygienFilter'];
       this.interestFilter = filters['interestFilter'];
       this.securityFilter = filters['securityFilter'];
 
       if (this.titleFilter != "" ||
+          this.localFilter != "" ||
           this.hygienFilter != 0 ||
           this.interestFilter != 0 ||
           this.securityFilter != 0)
@@ -40,6 +45,7 @@ class _HomeState extends State<Home> {
 
   void resetFilters() {
     this.titleFilter = "";
+    this.localFilter = "";
     this.hygienFilter = 0;
     this.interestFilter = 0;
     this.securityFilter = 0;
@@ -51,11 +57,21 @@ class _HomeState extends State<Home> {
     List<Widget> confs = [];
 
     for (int i = 0; i < conferences.length; i++) {
-      if (conferences[i].getHygien() >= this.hygienFilter &&
+      if ((conferences[i].getName() == this.titleFilter ||
+              this.titleFilter == "" ||
+              conferences[i]
+                  .getName()
+                  .toLowerCase()
+                  .contains(this.titleFilter.toLowerCase())) &&
+          (conferences[i].getLocal() == this.localFilter ||
+              this.localFilter == "" ||
+              conferences[i]
+                  .getLocal()
+                  .toLowerCase()
+                  .contains(this.localFilter.toLowerCase())) &&
+          conferences[i].getHygien() >= this.hygienFilter &&
           conferences[i].getSecurity() >= this.securityFilter &&
-          conferences[i].getInterest() >= this.interestFilter &&
-          (conferences[i].getName() == this.titleFilter ||
-              this.titleFilter == "")) {
+          conferences[i].getInterest() >= this.interestFilter) {
         confs.add(
           FlatButton(
             onPressed: () {
@@ -63,11 +79,14 @@ class _HomeState extends State<Home> {
                   arguments: conferences[i]);
             },
             child: Center(
-                child: Text(conferences[i].getName(),
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400))),
+                child: Text(
+              conferences[i].getName(),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400),
+              textAlign: TextAlign.center,
+            )),
             color: Colors.green[300],
           ),
         );
@@ -75,6 +94,12 @@ class _HomeState extends State<Home> {
     }
 
     return confs;
+  }
+
+  void updateConferences(dynamic updatedConferences) {
+    setState(() {
+      this.conferences = updatedConferences['conferences'];
+    });
   }
 
   Widget filtersButton() {
@@ -92,11 +117,16 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    // gets the conferences passes by the loading screen
-    conferences = ModalRoute.of(context).settings.arguments;
+    if (this.start) {
+      this.start = false;
+
+      // gets the conferences passes by the loading screen
+      conferences = ModalRoute.of(context).settings.arguments;
+    }
 
     return Scaffold(
       appBar: AppBar(
+        titleSpacing: 70,
         title:
             Text('Safe Meetings', style: TextStyle(color: Colors.green[800])),
         backgroundColor: Colors.green[50],
@@ -104,7 +134,12 @@ class _HomeState extends State<Home> {
           IconButton(
             icon: Icon(Icons.refresh),
             color: Colors.green[800],
-            onPressed: () {}, // it should refresh the home screen
+            onPressed: () async {
+              dynamic updatedConferences =
+                  await Navigator.pushNamed(context, '/loading');
+              if (updatedConferences != null)
+                this.updateConferences(updatedConferences);
+            },
           ),
           IconButton(
               icon: Icon(Icons.search),
@@ -113,7 +148,6 @@ class _HomeState extends State<Home> {
                 dynamic filters =
                     await Navigator.pushNamed(context, '/search_menu');
                 if (filters != null) this.changeFilters(filters);
-                // print(filters);
                 // SearchMenu(this.changeFilters);
               } // it should open the search menu
               )

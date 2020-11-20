@@ -23,7 +23,7 @@ class _SeeInfoState extends State<SeeInfo> {
   Widget nameWidget() {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16.0, 20.0, 16.0, 25.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(children: [
           Text(conference.getName(),
               style: TextStyle(
@@ -39,18 +39,12 @@ class _SeeInfoState extends State<SeeInfo> {
   Widget descriptionWidget() {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: Row(children: [
-          Text("Description: ",
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 18,
-                color: Colors.green[900]
-              )),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              width: 200,
+              width: 350,
               child: Text(conference.getDescription(),
                   style: TextStyle(
                     fontSize: 16,
@@ -84,9 +78,50 @@ class _SeeInfoState extends State<SeeInfo> {
     );
   }
 
+  Widget hourwidget() {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(children: [
+          Text("Hour: ",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18,
+                  color: Colors.green[900]
+              )),
+          Text(conference.getHour(),
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.green[900]
+              )),
+        ]),
+      ),
+    );
+  }
+
+  Widget localWidget() {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(children: [
+          Text("Local: ",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18,
+                  color: Colors.green[900]
+              )),
+          Text(conference.getLocal(),
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.green[900]
+              )),
+        ]),
+      ),
+    );
+  }
+
   Widget hygienWidget() {
     this.selectStarColor(conference.getHygien());
-
     return Container(
         child: Padding(
       padding: const EdgeInsets.all(16.0),
@@ -149,16 +184,22 @@ class _SeeInfoState extends State<SeeInfo> {
         title: Text('Safe Meetings', /*style: TextStyle(color: Colors.green[800]),*/),
       ),
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          this.nameWidget(),
-          this.descriptionWidget(),
-          this.datewidget(),
-          this.hygienWidget(),
-          this.securityWidget(),
-          this.interestWidget(),
-        ],
-      ),
-    );
+      body: ListView(padding: const EdgeInsets.all(8.0), children: [
+        Container(
+          child: Column(
+                  children: [
+                    this.nameWidget(),
+                    this.descriptionWidget(),
+                    this.datewidget(),
+                    this.hourwidget(),
+                    this.localWidget(),
+                    this.hygienWidget(),
+                    this.securityWidget(),
+                    this.interestWidget(),
+            ],
+          ),
+        )
+      ]
+    ));
   }
 }
