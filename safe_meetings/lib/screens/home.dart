@@ -136,7 +136,7 @@ class _HomeState extends State<Home> {
 Widget loginButton(BuildContext context) {
   Authentication auth = Authentication();
 
-  return auth.loggedIn == true //this condition should change but doesn't
+  return !auth.loggedIn //this condition should change but doesn't
       ? BottomAppBar(
           color: Colors.green[50],
           child: Row(
