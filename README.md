@@ -82,7 +82,10 @@ Start by contextualizing your module, describing the main concepts, terms, roles
     ![Initial Screen](/images/mockup_initial_screen.png)
     ![Info Screen](/images/mockup_info_screen.png)
 
-  - *Acceptance tests*
+  - **Aceptance Tests**
+
+    - Verify if the user selects a conference, all the conference info should show up.
+    - Veirfy if when the user touches the arrow back the app goes to home.
 
   - **Value and effort**: M
 
@@ -93,6 +96,11 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
   - *Acceptance tests*
 
+    - Verify if when the user touches evaluate button a window asking for the code shows up.
+    - Verify if when the user inputs the correct code a window asking for the evaluation shows up.
+    - Verify if when the user inputs the wrong code the app should remain in the same window.
+    - Veirfy if when the user touches submit button. all the evaluations parameters are sent to the database.
+
   - **Value and effort**: L
 
 * As a user, I want to be able to search for a conference by their rating in each parameter, so that I'm aware about the conference conditions.
@@ -100,7 +108,11 @@ Start by contextualizing your module, describing the main concepts, terms, roles
   
     ![Search Screen](/images/mockup_search_screen.png)
 
-  - *Acceptance tests*
+  - **Acceptance tests**
+
+  - Verify if when the user touches the search button, a window with several filters shows up.
+  - Veirfy if when the user presses the filter button all the filters are sent to home.
+  - Veirfy if when the user touches the arrow back the app goes to home without changing the current filters.
 
   - **Value and effort**: L
 
