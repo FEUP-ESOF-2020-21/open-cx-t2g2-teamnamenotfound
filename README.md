@@ -82,7 +82,11 @@ Start by contextualizing your module, describing the main concepts, terms, roles
     ![Initial Screen](/images/mockup_initial_screen.png)
     ![Info Screen](/images/mockup_info_screen.png)
 
-  - *Acceptance tests*
+  - **Aceptance Tests**
+
+    - Verify if when the user taps in a conference, all the conference info should show up.
+    ![Conference Info Acceptance Tests](/images/conference_info_acceptance_tests.png)
+    - Veirfy if when the user taps the arrow back the app goes to home.
 
   - **Value and effort**: M
 
@@ -93,6 +97,12 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
   - *Acceptance tests*
 
+    - Verify if when the user taps evaluate button a window asking for a code shows up.
+    ![Evaluate Conference Acceptance Tests](/images/evaluate_conference_acceptance_tests.png)
+    - Verify if when the user inputs the correct code a window asking for the evaluation shows up.
+    - Verify if when the user inputs the wrong code the app should remain in the same window.
+    - Veirfy if when the user taps submit button. all the evaluations parameters are sent to the database.
+
   - **Value and effort**: L
 
 * As a user, I want to be able to search for a conference by their rating in each parameter, so that I'm aware about the conference conditions.
@@ -100,7 +110,12 @@ Start by contextualizing your module, describing the main concepts, terms, roles
   
     ![Search Screen](/images/mockup_search_screen.png)
 
-  - *Acceptance tests*
+  - **Acceptance tests**
+
+  - Verify if when the user taps the search button, a window with several filters shows up.
+  ![Search Conference Acceptance Tests](/images/search_conference_acceptance_tests.png)
+  - Veirfy if when the user taps the filter button all the filters are sent to home.
+  - Veirfy if when the user taps the arrow back the app goes to home without changing the current filters.
 
   - **Value and effort**: L
 
@@ -109,6 +124,10 @@ After the user story text, you should add a draft of the corresponding user inte
 
 **Acceptance tests**.
 For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
+
+**Map**
+
+   ![User Story Map](/images/Blank_diagram.png)
 
 
 ### Domain model
