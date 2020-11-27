@@ -4,22 +4,18 @@ import 'package:safe_meetings/conference.dart';
 import 'package:safe_meetings/database.dart';
 
 class Loading extends StatefulWidget {
-  bool refreshing;
-
-  Loading(bool refreshing) {
-    this.refreshing = refreshing;
-  }
-
   @override
   _LoadingState createState() => _LoadingState();
 }
 
 class _LoadingState extends State<Loading> {
+  bool refreshing;
+
   void loadConferences() async {
     List<Conference> conferences = await getConferencesFromDatabase();
 
     // substitui o loading pelo home screen passando a info das conferences
-    if(!widget.refreshing)
+    if (!this.refreshing)
       Navigator.pushReplacementNamed(context, '/home', arguments: conferences);
     else
       Navigator.pop(context, {'conferences': conferences});
@@ -33,6 +29,8 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
+    this.refreshing = ModalRoute.of(context).settings.arguments;
+
     return Container(
       color: Colors.green[50],
       child: Center(

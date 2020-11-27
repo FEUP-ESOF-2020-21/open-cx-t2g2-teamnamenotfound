@@ -135,8 +135,9 @@ class _HomeState extends State<Home> {
             icon: Icon(Icons.refresh),
             color: Colors.green[800],
             onPressed: () async {
-              dynamic updatedConferences =
-                  await Navigator.pushNamed(context, '/loading');
+              dynamic updatedConferences = await Navigator.pushNamed(
+                  context, '/loading',
+                  arguments: true);
               if (updatedConferences != null)
                 this.updateConferences(updatedConferences);
             },
@@ -168,9 +169,23 @@ class _HomeState extends State<Home> {
 }
 
 Widget loginButton(BuildContext context) {
-  Authentication auth = Authentication();
+  //Authentication auth = Authentication();
 
-  return !auth.loggedIn //this condition should change but doesn't
+  return BottomAppBar(
+    color: Colors.green[50],
+    child: Row(
+      children: [
+        MaterialButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/sign_out');
+            },
+            child: Text('Account info',
+                style: TextStyle(color: Colors.green[900], fontSize: 16)))
+      ],
+    ),
+  );
+/** 
+  return !auth.loggedIn
       ? BottomAppBar(
           color: Colors.green[50],
           child: Row(
@@ -200,4 +215,5 @@ Widget loginButton(BuildContext context) {
             ],
           ),
         );
+        */
 }
