@@ -184,7 +184,9 @@ class _SeeInfoState extends State<SeeInfo> {
         title: Text('Safe Meetings', /*style: TextStyle(color: Colors.green[800]),*/),
       ),
       backgroundColor: Colors.white,
-      body: ListView(padding: const EdgeInsets.all(8.0), children: [
+      body: ListView(
+        key: const Key("conferenceInfo"),
+        padding: const EdgeInsets.all(8.0), children: [
         Container(
           child: Column(
                   children: [

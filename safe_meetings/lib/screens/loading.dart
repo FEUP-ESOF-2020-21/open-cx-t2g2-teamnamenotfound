@@ -14,6 +14,9 @@ class _LoadingState extends State<Loading> {
   void loadConferences() async {
     List<Conference> conferences = await getConferencesFromDatabase();
 
+    // so usado para testes
+    if(this.refreshing == null) this.refreshing = false;
+
     // substitui o loading pelo home screen passando a info das conferences
     if (!this.refreshing)
       Navigator.pushReplacementNamed(context, '/home', arguments: conferences);

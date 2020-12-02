@@ -88,6 +88,7 @@ class _HomeState extends State<Home> {
           (this.endDate == -1 || this.endDate >= parseDateToInt(conferences[i].getDate()))) {
         confs.add(
           FlatButton(
+            // key: Key("conference${i+1}"),
             onPressed: () {
               Navigator.pushNamed(context, '/see_info',
                   arguments: conferences[i]);
@@ -145,6 +146,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.green[50],
         actions: [
           IconButton(
+            key: const Key("conference1"),
             icon: Icon(Icons.refresh),
             color: Colors.green[800],
             onPressed: () async {

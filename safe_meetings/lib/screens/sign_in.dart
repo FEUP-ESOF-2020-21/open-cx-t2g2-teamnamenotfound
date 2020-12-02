@@ -24,6 +24,7 @@ class _SignInState extends State<SignIn> {
                   borderRadius: new BorderRadius.circular(30.0)),
               onPressed: () async {
                 await auth.googleSignIn();
+                print("aqui");
                 Navigator.pushReplacementNamed(context, '/loading',
                     arguments: false);
               },

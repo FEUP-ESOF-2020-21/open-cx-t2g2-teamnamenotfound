@@ -6,6 +6,8 @@ import 'package:safe_meetings/screens/see_info.dart';
 import 'package:safe_meetings/screens/sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'screens/loading.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -22,7 +24,7 @@ class SafeMeetings extends StatelessWidget {
         primarySwatch: Colors.green, // tema da nossa app
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SignIn(),
+      home: Loading(),
       routes: {
         '/loading': (context) => Loading(),
         '/home': (context) => Home(),
