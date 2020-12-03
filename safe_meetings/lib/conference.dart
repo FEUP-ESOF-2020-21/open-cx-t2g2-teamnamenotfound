@@ -7,11 +7,13 @@ class Conference {
   String _date;
   String _hour;
   String _local;
+  String _code;
   List<int> _hygien, _interest, _security; // list with all the evaluations
+  List<String> _users, _votedUsers; // list with all the users
 
   DatabaseReference _id;
 
-  Conference(name, description, date, hour, local, hygien, interest, security) {
+  Conference(name, description, date, hour, local, hygien, interest, security, users, votedUsers, code) {
     this._name = name;
     this._description = description;
     this._date = date;
@@ -21,6 +23,9 @@ class Conference {
     this._hygien = hygien;
     this._interest = interest;
     this._security = security;
+    this._users=users; //participantes das conferencias
+    this._votedUsers=votedUsers; //utilizadores que já avaliaram
+    this._code=code; //codigo para aceder às conferencias
   }
 
   void setId(databaseReference) {
@@ -83,6 +88,49 @@ class Conference {
     return security;
   }
 
+   //verifica se o user é participante desta conferencia
+  bool isParticipant(String userEmail){
+    for(int i=0; i<_users.length; i++){
+      if(this._users[i]==userEmail)
+        return true;
+    }
+    return false;
+  }
+
+  //verifica que ainda não votou
+  bool hasntVoted(String usermail){
+    for(int i=0; i<this._votedUsers.length; i++){
+      if(this._votedUsers[i]==usermail)
+        return false;
+    }
+    return true;
+  }
+
+  String getCode(){
+    return this._code;
+  }
+
+  //adiciona ao votedUser o usermail depois de avaliar.
+  void vote(String usermail){
+    this._votedUsers.add(usermail);
+  }
+  
+  //organizador coloca os emails dos participantes depois de ocorrer a conferencia, suposto adicionar à base de dados
+  void setEmails(emails){
+    this._users=emails;
+  }
+
+  //organizador coloca o código após a conferencia
+  void setCode(String code){
+    this._code=code;
+  }
+  //colocar na base de dados os valores adquiridos na avaliação
+  void setEvaluation(hygieneEvaluate, securityEvaluate, interestEvaluate){
+    this._hygien.add(hygieneEvaluate);
+    this._security.add(securityEvaluate);
+    this._interest.add(interestEvaluate);
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'name': this._name,
@@ -92,7 +140,10 @@ class Conference {
       'local': this._local,
       'hygien': this._hygien,
       'interest': this._interest,
-      'security': this._security
+      'security': this._security,
+      'users':this._users,
+      'usersVoted':this._votedUsers,
+      'code':this._code,
     };
   }
 }
@@ -106,7 +157,10 @@ Conference createConference(record) {
     'local': '',
     'hygien': [],
     'interest': [],
-    'security': []
+    'security': [],
+    'users':[],
+    'usersVoted':[],
+    'code':''
   };
 
   record.forEach((key, value) => {attr[key] = value});
@@ -119,7 +173,10 @@ Conference createConference(record) {
       attr['local'],
       convertFromDynamicToIntList(attr['hygien']),
       convertFromDynamicToIntList(attr['interest']),
-      convertFromDynamicToIntList(attr['security']));
+      convertFromDynamicToIntList(attr['security']),
+      convertFromDynamicToIntList(attr['users']),
+      convertFromDynamicToIntList(attr['usersVoted']),
+      attr['code']);
 
   return conference;
 }

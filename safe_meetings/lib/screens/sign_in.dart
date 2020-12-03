@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:safe_meetings/auth.dart';
+import 'dart:async';
+
+Future sleep1() {
+  return new Future.delayed(const Duration(seconds: 1), () => "1");
+}
 
 class SignIn extends StatefulWidget {
   @override
@@ -24,8 +29,7 @@ class _SignInState extends State<SignIn> {
                   borderRadius: new BorderRadius.circular(30.0)),
               onPressed: () async {
                 await auth.googleSignIn();
-                Navigator.pushReplacementNamed(context, '/loading',
-                    arguments: false);
+                Navigator.pushReplacementNamed(context, '/participant');
               },
               icon: Image.asset('images/google/google_logo.png'),
               label: Text('Sign in with Google',
