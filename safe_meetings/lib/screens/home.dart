@@ -199,36 +199,4 @@ Widget loginButton(BuildContext context) {
       ],
     ),
   );
-/** 
-  return !auth.loggedIn
-      ? BottomAppBar(
-          color: Colors.green[50],
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/sign_in',
-                    );
-                  },
-                  child: Text('Sign in to join conferences',
-                      style: TextStyle(color: Colors.green[900], fontSize: 16)))
-            ],
-          ))
-      : BottomAppBar(
-          color: Colors.green[50],
-          child: Row(
-            children: [
-              MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/sign_out');
-                  },
-                  child: Text('Account info',
-                      style: TextStyle(color: Colors.green[900], fontSize: 16)))
-            ],
-          ),
-        );
-        */
 }
