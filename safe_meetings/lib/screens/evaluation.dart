@@ -301,34 +301,33 @@ class _EvalState extends State<Evaluation> {
   }
 
   Widget displayFilterButton() {
-    return ElevatedButton(
+    return RaisedButton(
+        color: Colors.green[300],
         onPressed: () {
-          conference.setEvaluation(this.hygieneEvaluate, this.securityEvaluate, this.interestEvaluate);
-          //precisamos disto?
-          Navigator.pop(context, {
-            'hygienFilter': this.hygieneEvaluate,
-            'interestFilter': this.interestEvaluate,
-            'securityFilter': this.securityEvaluate
-          });
+          //conference.setEvaluation(this.hygieneEvaluate, this.securityEvaluate, this.interestEvaluate);
           //colocar para ir para a pagina do participante
           Navigator.pushNamed(context, '/participant');
         },
         child: Text('Submit',
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 16, color: Colors.white
           ),
         ));
   }
 
   @override
   Widget build(BuildContext context) {
+    conference=ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
         appBar: AppBar(
-          title: Text("Safe Meetings"),
+          title:
+            Text('Safe Meetings', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.green[300],
           // automaticallyImplyLeading:
           //     false, // this way the back button isn't displayed
         ),
-        backgroundColor: Colors.green[50],
+        backgroundColor: Colors.white,
         body: ListView(padding: const EdgeInsets.all(8.0), children: [
           Container(
             child: Column(children: [

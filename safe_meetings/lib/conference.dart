@@ -174,8 +174,8 @@ Conference createConference(record) {
       convertFromDynamicToIntList(attr['hygien']),
       convertFromDynamicToIntList(attr['interest']),
       convertFromDynamicToIntList(attr['security']),
-      convertFromDynamicToIntList(attr['users']),
-      convertFromDynamicToIntList(attr['usersVoted']),
+      convertFromDynamicStringList(attr['users']),
+      convertFromDynamicStringList(attr['usersVoted']),
       attr['code']);
 
   return conference;
@@ -185,6 +185,14 @@ List<int> convertFromDynamicToIntList(List<dynamic> source) {
   List<int> dest = [];
 
   for (int i = 0; i < source.length; i++) dest.add(source[i].toInt());
+
+  return dest;
+}
+
+List<String> convertFromDynamicStringList(List<dynamic> source) {
+  List<String> dest = [];
+
+  for (int i = 0; i < source.length; i++) dest.add(source[i]);
 
   return dest;
 }

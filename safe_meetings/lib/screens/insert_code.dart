@@ -9,7 +9,7 @@ class InsertCode extends StatefulWidget {
 class _InsertCodeState extends State<InsertCode> {
   Conference conference;
 
-  String conference_code = "";
+  String conference_code;
 
   var color = Colors.green[900];
 
@@ -37,28 +37,33 @@ class _InsertCodeState extends State<InsertCode> {
   }
 
   Widget displayButton() {
-    return ElevatedButton(
+    return RaisedButton(
+        color: Colors.green[300],
         onPressed: () {
           if(this.conference_code==conference.getCode()){
-            Navigator.pushNamed(context, 'evaluation',arguments: conference);
+            Navigator.pushNamed(context, '/evaluation',arguments: conference);
           }
         },
         child: Text('Next',
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 16, color: Colors.white
           ),
+          
         ));
   }
 
   @override
   Widget build(BuildContext context) {
+    conference=ModalRoute.of(context).settings.arguments;
     return Scaffold(
         appBar: AppBar(
-          title: Text("Safe Meetings"),
+          title:
+            Text('Safe Meetings', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.green[300],
           // automaticallyImplyLeading:
           //     false, // this way the back button isn't displayed
         ),
-        backgroundColor: Colors.green[50],
+        backgroundColor: Colors.white,
         body: ListView(padding: const EdgeInsets.all(8.0), children: [
           Container(
             child: Column(children: [
@@ -67,7 +72,7 @@ class _InsertCodeState extends State<InsertCode> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(vertical: 16),
                     child: Center(
-                      child: Text("Conference Evaluation",
+                      child: Text(conference.getName()+"\n\t\t\t\t\t\t\t\tEvaluation",
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,

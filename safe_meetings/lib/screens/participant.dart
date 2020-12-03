@@ -16,22 +16,25 @@ class _PartState extends State<Participant> {
   List<Widget> showConfs() {
     List<Widget> confs = [];
 
-    for (int i = 0; i < conferences.length; i++) {
-      String usermail=auth.getCurrentUser().email;
-      
-      if (conferences[i].isParticipant(usermail) && conferences[i].hasntVoted(usermail) ) { //isParticpant retorna true se o email do participante estiver na lista dada pela conferencia.
-        confs.add(
-          FlatButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/insert_code', //vai para a pagina onde coloca o código para entrar no questionário
-                  arguments: conferences[i]);
-                  //colocar na base de dados o email da pessoa que votou -> talvez colocar  em submit no evaluation.dart?
-                  conferences[i].vote(usermail);
-            },
-            child: Center(child: Text(conferences[i].getName(), style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400))),
-            color: Colors.green[300],
-          ),
-        );
+    //sem este if, depois do submit dá erro!
+    if(conferences!=null){
+      for (int i = 0; i < conferences.length; i++) {
+        String usermail=auth.getCurrentUser().email;
+        
+        if (conferences[i].isParticipant(usermail) && conferences[i].hasntVoted(usermail) ) { //isParticpant retorna true se o email do participante estiver na lista dada pela conferencia.
+          confs.add(
+            FlatButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/insert_code', //vai para a pagina onde coloca o código para entrar no questionário
+                    arguments: conferences[i]);
+                    //colocar na base de dados o email da pessoa que votou -> talvez colocar  em submit no evaluation.dart?
+                    conferences[i].vote(usermail);
+              },
+              child: Center(child: Text(conferences[i].getName(), style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400))),
+              color: Colors.green[300],
+            ),
+          );
+        }
       }
     }
 
@@ -53,15 +56,38 @@ class _PartState extends State<Participant> {
             color: Colors.green[800],
             onPressed: () {}, // it should refresh the home screen
           ),
-          IconButton(
-              icon: Icon(Icons.search),
-              color: Colors.green[800],
-              onPressed: () {
-                // SearchMenu(this.changeFilters);
-              } // it should open the search menu
-              )
         ],
       ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.green[50],
+        child: Row(
+          children: [
+            MaterialButton(
+                onPressed: () async {
+                  await auth.googleSignOut();
+                  Navigator.pushReplacementNamed(context, '/sign_in');
+                },
+                child: Text('Sign out',
+                    style: TextStyle(color: Colors.green[800], fontSize: 18)))
+            ],
+          ),
+        ),
+      /*
+      OutlineButton.icon(
+              onPressed: () async {
+                await auth.googleSignOut();
+                Navigator.pushReplacementNamed(context, '/sign_in');
+              },
+              shape: new RoundedRectangleBorder(
+                  side: BorderSide(width: 1, style: BorderStyle.solid),
+                  borderRadius: new BorderRadius.circular(5.0)),
+              icon: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                
+              ),
+              label: Text('Sign out',
+                  style: TextStyle(color: Colors.green[900], fontSize: 20)),
+            ),*/
       backgroundColor: Colors.white,
       body: GridView.count(
         padding: EdgeInsets.all(20),
