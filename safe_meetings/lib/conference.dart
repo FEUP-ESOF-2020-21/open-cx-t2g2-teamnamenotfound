@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:safe_meetings/database.dart';
+import 'dart:developer';
 
 class Conference {
   String _name;
@@ -126,9 +129,14 @@ class Conference {
   }
   //colocar na base de dados os valores adquiridos na avaliação
   void setEvaluation(hygieneEvaluate, securityEvaluate, interestEvaluate){
+    log('data: $_id');   
     this._hygien.add(hygieneEvaluate);
     this._security.add(securityEvaluate);
     this._interest.add(interestEvaluate);
+
+    //_id.update({'code':'ola'});
+    databaseReference.child('MKkcVJQf6GI0xclZBEG').update({'code':'ola'});
+    databaseReference.child('MKkcVJQf6GI0xclZBEG').remove();
   }
 
   Map<String, dynamic> toJson() {

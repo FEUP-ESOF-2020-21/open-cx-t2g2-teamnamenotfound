@@ -94,7 +94,7 @@ class _PartState extends State<Participant> {
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
         crossAxisCount: 2,
-        children: this.showConfs(),
+        children:this.showConfs(),
       ),
     );
   }

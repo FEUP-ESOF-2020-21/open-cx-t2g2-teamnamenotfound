@@ -304,9 +304,12 @@ class _EvalState extends State<Evaluation> {
     return RaisedButton(
         color: Colors.green[300],
         onPressed: () {
-          //conference.setEvaluation(this.hygieneEvaluate, this.securityEvaluate, this.interestEvaluate);
+          conference.setEvaluation(this.hygieneEvaluate, this.securityEvaluate, this.interestEvaluate);
           //colocar para ir para a pagina do participante
-          Navigator.pushNamed(context, '/participant');
+          Navigator.pop(context, '/evaluation');
+          Navigator.pop(context, '/insert_code');
+          Navigator.pop(context, '/participant');
+
         },
         child: Text('Submit',
           style: TextStyle(
