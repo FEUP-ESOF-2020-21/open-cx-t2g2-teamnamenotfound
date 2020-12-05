@@ -12,8 +12,6 @@ List<Conference> conferences = [];
 class _HomeState extends State<Home> {
   bool start = true;
 
-  
-
   // Filters
   String titleFilter = "";
   String localFilter = "";
@@ -36,9 +34,6 @@ class _HomeState extends State<Home> {
       this.securityFilter = filters['securityFilter'];
       this.startDate = parseDateToInt(filters['startDate']);
       this.endDate = parseDateToInt(filters['endDate']);
-
-      print(this.startDate);
-      print(this.endDate);
 
       if (this.titleFilter != "" ||
           this.localFilter != "" ||

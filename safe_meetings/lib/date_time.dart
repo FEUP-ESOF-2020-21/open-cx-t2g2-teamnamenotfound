@@ -9,11 +9,11 @@ int parseDateToInt(String date) {
 }
 
 String parseDateToString(DateTime dateTime) {
-  return dateTime.year.toString() + "-" + dateTime.month.toString() + "-" + dateTime.day.toString();
+  return dateTime.year.toString().padLeft(2, '0') + "-" + dateTime.month.toString().padLeft(2, '0') + "-" + dateTime.day.toString().padLeft(2, '0');
 }
 
 String parseTimeToString(int hour, int minute) {
-  return hour.toString() + ":" + minute.toString();
+  return hour.toString().padLeft(2, '0') + ":" + minute.toString().padLeft(2, '0');
 }
 
 int parseHourToInt(String hour) {
