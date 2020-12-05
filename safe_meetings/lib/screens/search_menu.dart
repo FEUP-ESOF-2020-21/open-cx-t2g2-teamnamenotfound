@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safe_meetings/date_time.dart';
+import 'package:safe_meetings/auxiliar/date_time.dart';
 
 class SearchMenu extends StatefulWidget {
   @override
@@ -469,7 +469,9 @@ class _SearchMenuState extends State<SearchMenu> {
           //     false, // this way the back button isn't displayed
         ),
         backgroundColor: Colors.green[50],
-        body: ListView(padding: const EdgeInsets.all(8.0), children: [
+        body: ListView(
+          key: const Key("searchScreen"),
+          padding: const EdgeInsets.all(8.0), children: [
           Container(
             child: Column(children: [
               Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [

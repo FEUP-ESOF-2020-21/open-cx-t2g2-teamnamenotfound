@@ -1,5 +1,4 @@
 import 'package:firebase_database/firebase_database.dart';
-import 'package:safe_meetings/database.dart';
 
 class Conference {
   String _name;

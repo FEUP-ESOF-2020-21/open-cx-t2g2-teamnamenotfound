@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:safe_meetings/conference.dart';
-import 'package:safe_meetings/database.dart';
+import 'package:safe_meetings/objects/conference.dart';
+import 'package:safe_meetings/auxiliar/database.dart';
 
 class Loading extends StatefulWidget {
   @override

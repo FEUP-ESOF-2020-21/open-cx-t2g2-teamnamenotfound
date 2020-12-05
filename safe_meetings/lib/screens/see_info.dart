@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safe_meetings/conference.dart';
+import 'package:safe_meetings/objects/conference.dart';
 
 class SeeInfo extends StatefulWidget {
   @override
@@ -185,7 +185,7 @@ class _SeeInfoState extends State<SeeInfo> {
       ),
       backgroundColor: Colors.white,
       body: ListView(
-        key: const Key("conferenceInfo"),
+        key: const Key("conferenceScreen"),
         padding: const EdgeInsets.all(8.0), children: [
         Container(
           child: Column(

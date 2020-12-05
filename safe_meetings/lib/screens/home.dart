@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:safe_meetings/conference.dart';
-import 'package:safe_meetings/date_time.dart';
-import 'package:safe_meetings/auth.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:safe_meetings/objects/conference.dart';
+import 'package:safe_meetings/auxiliar/date_time.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -88,7 +86,7 @@ class _HomeState extends State<Home> {
           (this.endDate == -1 || this.endDate >= parseDateToInt(conferences[i].getDate()))) {
         confs.add(
           FlatButton(
-            // key: Key("conference${i+1}"),
+            key: Key("conference${i+1}Button"),
             onPressed: () {
               Navigator.pushNamed(context, '/see_info',
                   arguments: conferences[i]);
@@ -146,7 +144,6 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.green[50],
         actions: [
           IconButton(
-            key: const Key("conference1"),
             icon: Icon(Icons.refresh),
             color: Colors.green[800],
             onPressed: () async {
@@ -158,6 +155,7 @@ class _HomeState extends State<Home> {
             },
           ),
           IconButton(
+            key: const Key("searchButton"),
               icon: Icon(Icons.search),
               color: Colors.green[800],
               onPressed: () async {
