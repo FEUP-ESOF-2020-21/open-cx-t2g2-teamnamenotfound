@@ -17,6 +17,6 @@ Future<void> main() {
     ..restartAppBetweenScenarios = true
     ..targetAppPath = "test/app.dart"
     // ..tagExpression = "@smoke" // uncomment to see an example of running scenarios based on tag expressions
-    ..exitAfterTestRun = true; // set to false if debugging to exit cleanly
+    ..exitAfterTestRun = false; // set to false if debugging to exit cleanly
   return GherkinRunner().execute(config);
 }
