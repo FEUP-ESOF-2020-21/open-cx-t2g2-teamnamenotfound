@@ -9,9 +9,11 @@ class Participant extends StatefulWidget {
 }
 
 
+
 class _PartState extends State<Participant> {
   List<Conference> conferences = [];
   Authentication auth = Authentication();
+  int conferencesToVote = 0;
 
   List<Widget> showConfs() {
     List<Widget> confs = [];
@@ -19,27 +21,38 @@ class _PartState extends State<Participant> {
     //sem este if, depois do submit dá erro!
     if(conferences!=null){
       for (int i = 0; i < conferences.length; i++) {
-        String usermail=auth.getCurrentUser().email;
-        
-        if (conferences[i].isParticipant(usermail) && conferences[i].hasntVoted(usermail) ) { //isParticpant retorna true se o email do participante estiver na lista dada pela conferencia.
+        String usermail = auth
+            .getCurrentUser()
+            .email;
+        if (conferences[i].isParticipant(usermail) && conferences[i].hasntVoted(usermail)) { //isParticpant retorna true se o email do participante estiver na lista dada pela conferencia.
+          conferencesToVote++;
           confs.add(
             FlatButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/insert_code', //vai para a pagina onde coloca o código para entrar no questionário
+                Navigator.pushNamed(context, '/insert_code',
+                    //vai para a pagina onde coloca o código para entrar no questionário
                     arguments: conferences[i]);
-                    //colocar na base de dados o email da pessoa que votou -> talvez colocar  em submit no evaluation.dart?
-                    conferences[i].vote(usermail);
+                //colocar na base de dados o email da pessoa que votou -> talvez colocar  em submit no evaluation.dart?
+                conferences[i].vote(usermail);
               },
-              child: Center(child: Text(conferences[i].getName(), style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400))),
+              child: Center(child: Text(conferences[i].getName(),
+                  style: TextStyle(color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400))),
               color: Colors.green[300],
             ),
           );
         }
       }
+      if (conferencesToVote == 0) {
+        confs.add(
+          Text('No conferences to evaluate!', style: TextStyle(color: Colors.green[900],
+              fontSize: 14)));
+      }
     }
-
     return confs;
   }
+
 
   @override
   Widget build(BuildContext context) {
