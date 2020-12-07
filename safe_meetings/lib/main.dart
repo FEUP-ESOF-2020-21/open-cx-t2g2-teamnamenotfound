@@ -4,6 +4,9 @@ import 'package:safe_meetings/screens/loading.dart';
 import 'package:safe_meetings/screens/search_menu.dart';
 import 'package:safe_meetings/screens/see_info.dart';
 import 'package:safe_meetings/screens/sign_in.dart';
+import 'package:safe_meetings/screens/evaluation.dart';
+import 'package:safe_meetings/screens/insert_code.dart';
+import 'package:safe_meetings/screens/participant.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:safe_meetings/screens/sign_out.dart';
 
@@ -23,7 +26,7 @@ class SafeMeetings extends StatelessWidget {
     this.signIn = signIn;
     this.signOut = signOut;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,6 +44,10 @@ class SafeMeetings extends StatelessWidget {
         '/sign_in': (context) => this.signIn,
         '/sign_out': (context) => this.signOut,
         '/search_menu': (context) => SearchMenu(),
+        '/evaluation': (context) => Evaluation(),
+        '/insert_code': (context) => InsertCode(),
+        '/participant': (context) => Participant(),
+        // faltam os outros
       },
     );
   }

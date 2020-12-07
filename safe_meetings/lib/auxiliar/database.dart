@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:safe_meetings/objects/conference.dart';
+import 'dart:developer';
 
 final databaseReference = FirebaseDatabase.instance.reference();
 
@@ -19,6 +20,7 @@ Future<List<Conference>> getConferencesFromDatabase() async {
     dataSnapshot.value.forEach((key, value) {
       Conference conference = createConference(value);
       conference.setId(databaseReference.child('posts/' + key));
+      conference.setKey(key);
       conferences.add(conference);
     });
   }

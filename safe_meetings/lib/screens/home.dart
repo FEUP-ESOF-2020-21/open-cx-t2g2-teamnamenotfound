@@ -6,11 +6,9 @@ class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
-
+List<Conference> conferences = [];
 class _HomeState extends State<Home> {
   bool start = true;
-
-  List<Conference> conferences = [];
 
   // Filters
   String titleFilter = "";
@@ -34,9 +32,6 @@ class _HomeState extends State<Home> {
       this.securityFilter = filters['securityFilter'];
       this.startDate = parseDateToInt(filters['startDate']);
       this.endDate = parseDateToInt(filters['endDate']);
-
-      print(this.startDate);
-      print(this.endDate);
 
       if (this.titleFilter != "" ||
           this.localFilter != "" ||
@@ -111,7 +106,7 @@ class _HomeState extends State<Home> {
 
   void updateConferences(dynamic updatedConferences) {
     setState(() {
-      this.conferences = updatedConferences['conferences'];
+      conferences = updatedConferences['conferences'];
     });
   }
 
@@ -190,10 +185,10 @@ Widget loginButton(BuildContext context) {
       children: [
         MaterialButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/sign_out');
+              Navigator.pushNamed(context, '/participant', arguments: conferences);
             },
             child: Text('Account info',
-                style: TextStyle(color: Colors.green[900], fontSize: 16)))
+                style: TextStyle(color: Colors.green[800], fontSize: 18)))
       ],
     ),
   );

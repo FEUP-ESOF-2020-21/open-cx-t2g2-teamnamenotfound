@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:safe_meetings/auxiliar/auth.dart';
+import 'package:safe_meetings/auxiliar/database.dart';
 
 // ###########################
 //          INTERFACE
 // ###########################
 
-abstract class SignIn extends StatefulWidget{}
+abstract class SignIn extends StatefulWidget {}
 
 // ###########################
 //      IMPLEMENTATION
@@ -35,7 +36,6 @@ class _SignInAppState extends State<SignInApp> {
                   borderRadius: new BorderRadius.circular(30.0)),
               onPressed: () async {
                 await auth.googleSignIn();
-                print("aqui");
                 Navigator.pushReplacementNamed(context, '/loading',
                     arguments: false);
               },
