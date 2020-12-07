@@ -1,6 +1,6 @@
-# Feature: Evaluate Conference
+Feature: Evaluate Conference
 
-#     Scenario: A window asking the code shows up when evaluate button is pressed
-#         Given the user is logged in with a valid account and the app is in "conference info" screen
-#         When evaluate button is pressed
-#         Then a window asking the code shows up
+    Scenario: The evaluate screen shows up when the user tap evaluate conferences button
+        Given the user is logged in with a valid account and the app is in home screen
+        When I tap the "evaluateButton" button
+        Then "evaluateScreen" screen shows up

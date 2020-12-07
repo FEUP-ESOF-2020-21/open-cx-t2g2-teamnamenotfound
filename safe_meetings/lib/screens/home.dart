@@ -184,10 +184,11 @@ Widget loginButton(BuildContext context) {
     child: Row(
       children: [
         MaterialButton(
+          key: const Key("evaluateButton"),
             onPressed: () {
               Navigator.pushNamed(context, '/participant', arguments: conferences);
             },
-            child: Text('Account info',
+            child: Text('Evaluate Conferences',
                 style: TextStyle(color: Colors.green[800], fontSize: 18)))
       ],
     ),

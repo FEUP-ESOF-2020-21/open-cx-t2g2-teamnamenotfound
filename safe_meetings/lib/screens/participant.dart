@@ -57,6 +57,7 @@ class _PartState extends State<Participant> {
     conferences = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
+      key: const Key("evaluateScreen"),
       appBar: AppBar(
         title:
             Text('Safe Meetings', style: TextStyle(color: Colors.green[800])),
