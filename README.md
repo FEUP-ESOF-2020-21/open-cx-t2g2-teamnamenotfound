@@ -132,8 +132,12 @@ For each user story you should write also the acceptance tests (textually in Ghe
 
 ### Domain model
 
-To better understand the context of the software system, it is very useful to have a simple UML class diagram with all the key concepts (names, attributes) and relationships involved of the problem domain addressed by your module.
+A user can be both an organizer and a participant in a conference. The only difference between these is that the organizer has access to the evaluation code in the information of the conferences he organizes.
 
+During the conference the evaluation code is given to the participants of the conference so that only they can evaluate, not allowing people who have not been to the conference to evaluate.
+A participant can evaluate a conference only once.
+
+  ![Domain Model](/images/domain-model.png)
 ---
 
 ## Architecture and Design
