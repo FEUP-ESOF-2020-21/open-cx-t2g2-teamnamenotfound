@@ -190,7 +190,7 @@ To manage feature request, bug fixes, and improvements, we used Github issues an
 
 ## Project management
 
-The project management tool we use was [Github Projects](https://github.com/features/project-management/com), capable of registering task, assign tasks to people, add estimations to task, monitor tasks progress, and therefore being able to track their projects.
+The project management tool we used was [Github Projects](https://github.com/features/project-management/com), capable of registering task, assign tasks to people, add estimations to task, monitor tasks progress, and therefore being able to track their projects.
 
 ---
 
