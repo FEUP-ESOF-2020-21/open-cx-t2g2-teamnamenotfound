@@ -184,10 +184,7 @@ A good practice is to simplify this, avoiding repetitions, and automating the te
 ---
 ## Configuration and change management
 
-Configuration and change management are key activities to control change to, and maintain the integrity of, a projects artifacts (code, models, documents).
-
-For the purpose of ESOF, we will use a very simple approach, just to manage feature requests, bug fixes, and improvements, using GitHub issues and following the [GitHub flow](https://guides.github.com/introduction/flow/).
-
+To manage feature request, bug fixes, and improvements, we used Github issues and followed the [GitHub flow](https://guides.github.com/introduction/flow/).
 
 ---
 
