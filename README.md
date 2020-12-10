@@ -188,7 +188,7 @@ For the purpose of ESOF, we will use a very simple approach, just to manage feat
 
 ## Project management
 
-The project management tool we used was [Github Projects](https://github.com/features/project-management/com), capable of registering task, assign tasks to people, add estimations to task, monitor tasks progress, and therefore being able to track their projects.
+The project management tool we used was [Github Projects](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/projects/1), capable of registering task, assign tasks to people, add estimations to task, monitor tasks progress, and therefore being able to track their projects.
 
 ---
 
