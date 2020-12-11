@@ -64,6 +64,7 @@ class _HomeState extends State<Home> {
 
   List<Widget> showConfs() {
     List<Widget> confs = [];
+    int count = 0;
 
     for (int i = 0; i < conferences.length; i++) {
       if ((conferences[i].getName() == this.titleFilter ||
@@ -83,6 +84,7 @@ class _HomeState extends State<Home> {
           conferences[i].getInterest() >= this.interestFilter &&
           parseDateToInt(conferences[i].getDate()) >= this.startDate &&
           (this.endDate == -1 || this.endDate >= parseDateToInt(conferences[i].getDate()))) {
+        count++;
         confs.add(
           FlatButton(
             key: Key("conference${i+1}Button"),
@@ -103,6 +105,11 @@ class _HomeState extends State<Home> {
           ),
         );
       }
+    }
+
+    if (count == 0) {
+      confs.add(Text('No conferences found!',
+          style: TextStyle(color: Colors.green[900], fontSize: 14)));
     }
 
     return confs;
