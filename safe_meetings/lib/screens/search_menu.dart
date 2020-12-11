@@ -72,120 +72,132 @@ class _SearchMenuState extends State<SearchMenu> {
               fontSize: 20,
               color: color,
             )),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Row(
-            children: [
-              Radio(
-                  value: 0,
-                  groupValue: this.hygienFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.hygienFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('0',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 0,
+                    groupValue: this.hygienFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.hygienFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('0',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 1,
-                  groupValue: this.hygienFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.hygienFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('1',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 1,
+                    groupValue: this.hygienFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.hygienFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('1',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 2,
-                  groupValue: this.hygienFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.hygienFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('2',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 2,
+                    groupValue: this.hygienFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.hygienFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('2',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 3,
-                  groupValue: this.hygienFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.hygienFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('3',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 3,
+                    groupValue: this.hygienFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.hygienFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('3',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 4,
-                  groupValue: this.hygienFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.hygienFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('4',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 4,
+                    groupValue: this.hygienFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.hygienFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('4',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 5,
-                  groupValue: this.hygienFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.hygienFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('5',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 5,
+                    groupValue: this.hygienFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.hygienFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('5',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
         ])
       ]),
@@ -201,82 +213,90 @@ class _SearchMenuState extends State<SearchMenu> {
               fontSize: 20,
               color: color,
             )),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Row(
-            children: [
-              Radio(
-                  value: 0,
-                  groupValue: this.securityFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.securityFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('0',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 0,
+                    groupValue: this.securityFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.securityFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('0',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 1,
-                  groupValue: this.securityFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.securityFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('1',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 1,
+                    groupValue: this.securityFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.securityFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('1',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 2,
-                  groupValue: this.securityFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.securityFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('2',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 2,
+                    groupValue: this.securityFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.securityFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('2',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 3,
-                  groupValue: this.securityFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.securityFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('3',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 3,
+                    groupValue: this.securityFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.securityFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('3',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
           Row(
             children: [
@@ -297,25 +317,27 @@ class _SearchMenuState extends State<SearchMenu> {
               ),
             ],
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 5,
-                  groupValue: this.securityFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.securityFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('5',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
-          )
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 5,
+                    groupValue: this.securityFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.securityFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('5',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
+          ),
         ])
       ]),
     );
@@ -330,82 +352,90 @@ class _SearchMenuState extends State<SearchMenu> {
               fontSize: 20,
               color: color,
             )),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Row(
-            children: [
-              Radio(
-                  value: 0,
-                  groupValue: this.interestFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.interestFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('0',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 0,
+                    groupValue: this.interestFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.interestFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('0',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 1,
-                  groupValue: this.interestFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.interestFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('1',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 1,
+                    groupValue: this.interestFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.interestFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('1',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 2,
-                  groupValue: this.interestFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.interestFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('2',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 2,
+                    groupValue: this.interestFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.interestFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('2',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 3,
-                  groupValue: this.interestFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.interestFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('3',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 3,
+                    groupValue: this.interestFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.interestFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('3',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
           ),
           Row(
             children: [
@@ -426,25 +456,27 @@ class _SearchMenuState extends State<SearchMenu> {
               ),
             ],
           ),
-          Row(
-            children: [
-              Radio(
-                  value: 5,
-                  groupValue: this.interestFilter,
-                  onChanged: (val) {
-                    setState(() {
-                      this.interestFilter = val;
-                    });
-                  }),
-              Container(
-                width: 0,
-                child: Text('5',
-                    style: TextStyle(
-                      color: color,
-                    )),
-              ),
-            ],
-          )
+          Expanded(
+            child: Row(
+              children: [
+                Radio(
+                    value: 5,
+                    groupValue: this.interestFilter,
+                    onChanged: (val) {
+                      setState(() {
+                        this.interestFilter = val;
+                      });
+                    }),
+                Container(
+                  width: 0,
+                  child: Text('5',
+                      style: TextStyle(
+                        color: color,
+                      )),
+                ),
+              ],
+            ),
+          ),
         ])
       ]),
     );
