@@ -39,14 +39,14 @@ class _SeeInfoState extends State<SeeInfo> {
 
   Widget descriptionWidget() {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.8,
+      width: 350 * MediaQuery.of(context).size.width,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              width: 350,
+              width: 0.8 * MediaQuery.of(context).size.width,
               child: Text(conference.getDescription(),
                   style: TextStyle(fontSize: 16, color: Colors.green[900])),
             ),
