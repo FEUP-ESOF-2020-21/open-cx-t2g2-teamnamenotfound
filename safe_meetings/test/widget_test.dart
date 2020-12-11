@@ -45,5 +45,11 @@ void main() {
     expect(c.getHygien(), 3);
     expect(c.getInterest(), 3);
     expect(c.getSecurity(), 4);
+    expect(c.getUsers().length, 3);
+    expect(c.getVotedUsers().length, 2);
+  });
+
+  test('Filtros de conferências', () {
+    // TO DO
   });
 }
