@@ -1,6 +1,10 @@
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:safe_meetings/objects/conference.dart';
 import 'package:safe_meetings/auxiliar/date_time.dart';
+import 'package:safe_meetings/auxiliar/auth.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -123,8 +127,13 @@ class _HomeState extends State<Home> {
       return null;
   }
 
+
+
+
   @override
   Widget build(BuildContext context) {
+      Authentication auth = Authentication();
+
     if (this.start) {
       this.start = false;
 
@@ -162,7 +171,7 @@ class _HomeState extends State<Home> {
               )
         ],
       ),
-      bottomNavigationBar: loginButton(context),
+      bottomNavigationBar:  bottomAppBar(context),
       backgroundColor: Colors.white,
       body: GridView.count(
         padding: EdgeInsets.all(20),
@@ -176,21 +185,51 @@ class _HomeState extends State<Home> {
   }
 }
 
-Widget loginButton(BuildContext context) {
-  //Authentication auth = Authentication();
+Widget bottomAppBar(BuildContext context){
+  Authentication auth = Authentication();
 
   return BottomAppBar(
-    color: Colors.green[50],
-    child: Row(
-      children: [
-        MaterialButton(
-          key: const Key("evaluateButton"),
-            onPressed: () {
-              Navigator.pushNamed(context, '/participant', arguments: conferences);
-            },
-            child: Text('Evaluate Conferences',
-                style: TextStyle(color: Colors.green[800], fontSize: 18)))
-      ],
+    child: Container(
+      color: Colors.green[300],
+      height: 98,
+      child: Column(
+        children: <Widget>[
+           Container(
+            color: Colors.green[50],
+            child:
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MaterialButton(
+                  key: const Key("evaluateButton"),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/participant', arguments: conferences);
+                  },
+                  child: Text('Evaluate Conferences',
+                      style: TextStyle(color: Colors.green[600], fontSize: 18)))
+              ],              
+            ),
+          ),
+          Container(
+            color: Colors.green[300],
+            child:
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MaterialButton(
+                    onPressed: () async {
+                      await auth.googleSignOut();
+                      Navigator.pushReplacementNamed(context, '/sign_in');
+                    },
+                    child: Text('Sign out',
+                        style: TextStyle(color: Colors.green[50], fontSize: 18)))
+              ],
+            ),
+          ),
+        ],
+      ),
     ),
   );
 }

@@ -70,20 +70,7 @@ class _PartState extends State<Participant> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.green[50],
-        child: Row(
-          children: [
-            MaterialButton(
-                onPressed: () async {
-                  await auth.googleSignOut();
-                  Navigator.pushReplacementNamed(context, '/sign_in');
-                },
-                child: Text('Sign out',
-                    style: TextStyle(color: Colors.green[800], fontSize: 18)))
-          ],
-        ),
-      ),
+      
       /*
       OutlineButton.icon(
               onPressed: () async {
