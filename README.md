@@ -131,13 +131,6 @@ A participant can evaluate a conference only once.
 ---
 
 ## Architecture and Design
-The architecture of a software system encompasses the set of key decisions about its overall organization. 
-
-A well written architecture document is brief but reduces the amount of time it takes new programmers to a project to understand the code to feel able to make modifications and enhancements.
-
-To document the architecture requires describing the decomposition of the system in their parts (high-level components) and the key behaviors and collaborations between them. 
-
-In this section you should start by briefly describing the overall components of the project and their interrelations. You should also describe how you solved typical problems you may have encountered, pointing to well-known architectural and design patterns, if applicable.
 
 ### Logical architecture
 ![Logical Architecture](/images/logical_architecture.png)
@@ -174,18 +167,14 @@ A good practice is to simplify this, avoiding repetitions, and automating the te
 ---
 ## Configuration and change management
 
-Configuration and change management are key activities to control change to, and maintain the integrity of, a project’s artifacts (code, models, documents).
-
-For the purpose of ESOF, we will use a very simple approach, just to manage feature requests, bug fixes, and improvements, using GitHub issues and following the [GitHub flow](https://guides.github.com/introduction/flow/).
+In order to be able manage project changes, we tried as much as possible to follow [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). 
+So when we wanted to fix some bug or add some new feature we used branches and we also created pull requests, the other elements could try it by themselves and then tell us something about it. If everyone agreed that the code was working as it should we merged it with main. 
+Here is a link to our [git flow](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/commits/main).
 
 ---
 
 ## Project management
 
-The project management tool we used was [Github Projects](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/projects/1), capable of registering task, assign tasks to people, add estimations to task, monitor tasks progress, and therefore being able to track their projects.
+In order to be able to manage our project we used [Github Projects](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/projects).
 
----
 
-## Evolution - contributions to open-cx
-
-Describe your contribution to open-cx (iteration 5), linking to the appropriate pull requests, issues, documentation.
