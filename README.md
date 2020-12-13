@@ -38,10 +38,6 @@ During these rough times, do you wonder if an opportunity of personal and profes
 ---
 ## Requirements
 
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
-
-Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
-
 ### Use case diagram 
 
 ![Use Cases diagram](/images/use_cases.png)
@@ -144,11 +140,20 @@ A participant can evaluate a conference only once.
 
 
 ## Implementation
-Regular product increments are a good practice of product management. 
 
-While not necessary, sometimes it might be useful to explain a few aspects of the code that have the greatest potential to confuse software engineers about how it works. Since the code should speak by itself, try to keep this section as short and simple as possible.
+To implement this project we divide our work through all the 4 iterations. Above there is a list that explains what work was developed in each iteration.  
 
-Use cross-links to the code repository and only embed real fragments of code when strictly needed, since they tend to become outdated very soon.
+**Iteration 1**  
+In this first iteration we started by learning about how flutter works, start developing the report(product vision, elevator pitch, use cases, user stories and mockups) and we also started to implement our app. We implemented the home screen and the conference info screen of our app, and we also started to try establish communication with firebase.
+
+**Iteration 2**  
+In this second iteration we implemented a few more features in our app, such as the search screen and the refresh screen. We also started to try implement the login feature but we were not able to conclude this implementation.
+
+**Iteration 3**  
+In this iteration we ended the implementation of login, we also started to try to implement the acceptance tests and we inserted information in the report about the acceptance tests.
+
+**Iteration 4**  
+In this final iteration we implemented our final feature that is evaluate a conference, we implemented as well unit tests and we conclude the report inserting the remaing information(domain model, logical architecture, Physical architecture, prototype, implementation, test, configuration and change management and project management).
 
 ---
 ## Test
