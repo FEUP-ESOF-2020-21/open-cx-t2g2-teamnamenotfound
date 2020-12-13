@@ -140,11 +140,8 @@ A participant can evaluate a conference only once.
 
 
 ### Prototype
-To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
+![gif](/images/app.gif)
 
-In this subsection please describe in more detail which, and how, user(s) story(ies) were implemented.
-
----
 
 ## Implementation
 Regular product increments are a good practice of product management. 
