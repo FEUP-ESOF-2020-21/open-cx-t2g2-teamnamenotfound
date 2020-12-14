@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:safe_meetings/objects/conference.dart';
+import 'package:safe_meetings/screens/home.dart';
 
 void main() {
   ConferenceMock c = ConferenceMock(
@@ -50,6 +51,38 @@ void main() {
   });
 
   test('Filtros de conferências', () {
-    // TO DO
+    HomeMock H = HomeMock();
+
+    H.conferences.add(ConferenceMock("Teste1", "", "2021-02-25", "12:00", "B001",
+        [5], [3], [1],
+        ["user1", "user2"], ["user1"], "code", ["user2"]));
+    H.conferences.add(ConferenceMock("Teste2", "", "2021-03-01", "18:30", "B002",
+        [1], [3], [5],
+        ["user1", "user2"], ["user1"], "code", ["user2"]));
+    H.conferences.add(ConferenceMock("Teste3", "", "2021-01-25", "17:00", "B003",
+        [2], [4], [4],
+        ["user1", "user2"], ["user1"], "code", ["user2"]));
+
+    expect(H.showConfs().length, 3);
+
+    H.changeFilters("Teste", "B", 0, 0, 0, "2021-01-01", "2021-12-31");
+    // Teste é substring de Teste1, Teste2 e Teste3, tal como B é substring de B001, B002 e B003
+    expect(H.showConfs().length, 3);
+
+    H.changeFilters("", "", 0, 0, 0, "2021-02-23", "2021-03-02");
+    // Esperadas as 2 primeiras conferências
+    expect(H.showConfs().length, 2);
+
+    H.changeFilters("", "", 0, 0, 4, "2021-01-01", "2021-12-31");
+    // Esperadas as 2 últimas conferências
+    expect(H.showConfs().length, 2);
+
+    H.changeFilters("", "", 5, 5, 5, "2021-01-01", "2021-12-31");
+    // Nenhuma conferência esperada
+    expect(H.showConfs().length, 0);
+
+    H.resetFilters();
+    // Todas as 3 conferências esperadas
+    expect(H.showConfs().length, 3);
   });
 }
