@@ -165,12 +165,15 @@ We focus our tests on:
 * Confirm class functions envolving conferences and respective filters.
 
 ### Acceptance Tests
-To complete
+To make this tests we used flutter_gherkin and we tested the following features:  
+* **Conference Info:** in this feature we tested if when we thouched a conference a conference info screen showed up.
+* **Evaluate Conference:** in this feature we tested if when we touched the evaluate conference button a screen showing the available conferences to evaluate showed up.
+* **Search Conference:** in this one we tested if when we touched the search button a screen showing the available filters showed up.
 
 ### Unit Tests
-* **Conference data**: every parameter has what it supposed to have;
-* **Evaluate conference**: evaluation parameters are refreshed, so as voted users;
-* **Search conference**: filters are working as expected: only shows conferences within the applied filters.
+* **Conference data:** every parameter has what it supposed to have;
+* **Evaluate conference:** evaluation parameters are refreshed, so as voted users;
+* **Search conference:** filters are working as expected: only shows conferences within the applied filters.
 
 [Tests](/safe_meetings/test)
 
