@@ -158,20 +158,27 @@ In this final iteration we implemented our final feature that is evaluate a conf
 ---
 ## Test
 
-There are several ways of documenting testing activities, and quality assurance in general, being the most common: a strategy, a plan, test case specifications, and test checklists.
+To test our code, we implement acceptance tests and unit tests.
 
-In this section it is only expected to include the following:
-* test plan describing the list of features to be tested and the testing methods and tools;
-* test case specifications to verify the functionalities, using unit tests and acceptance tests.
- 
-A good practice is to simplify this, avoiding repetitions, and automating the testing actions as much as possible.
+We focus our tests on:
+* Tap buttons and shows up another screen, in the case of acceptance tests;
+* Confirm class functions envolving conferences and respective filters.
+
+### Acceptance Tests
+To complete
+
+### Unit Tests
+* **Conference data**: every parameter has what it supposed to have;
+* **Evaluate conference**: evaluation parameters are refreshed, so as voted users;
+* **Search conference**: filters are working as expected: only shows conferences within the applied filters.
+
+[Tests](/safe_meetings/test)
 
 ---
 ## Configuration and change management
 
-In order to be able manage project changes, we tried as much as possible to follow [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). 
-So when we wanted to fix some bug or add some new feature we used branches and we also created pull requests, the other elements could try it by themselves and then tell us something about it. If everyone agreed that the code was working as it should we merged it with main. 
-Here is a link to our [git flow](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/commits/main).
+In order to be able manage project changes, we tried as much as possible to follow [Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). 
+So when we wanted to fix some bug or add some new feature we used branches and we also created pull requests, the other elements could try it by themselves and then tell us something about it. If everyone agreed that the code was working as it should we merged it with main.
 
 ---
 
