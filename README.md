@@ -38,10 +38,6 @@ During these rough times, do you wonder if an opportunity of personal and profes
 ---
 ## Requirements
 
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
-
-Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
-
 ### Use case diagram 
 
 ![Use Cases diagram](/images/use_cases.png)
@@ -147,36 +143,52 @@ The physical architecture consists of an android device (phone,tablet,etc..) whi
 
 
 ### Prototype
-To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
+![gif](/images/app.gif)
 
-In this subsection please describe in more detail which, and how, user(s) story(ies) were implemented.
-
----
 
 ## Implementation
-Regular product increments are a good practice of product management. 
 
-While not necessary, sometimes it might be useful to explain a few aspects of the code that have the greatest potential to confuse software engineers about how it works. Since the code should speak by itself, try to keep this section as short and simple as possible.
+To implement this project we divide our work through all the 4 iterations. Above there is a list that explains what work was developed in each iteration.  
 
-Use cross-links to the code repository and only embed real fragments of code when strictly needed, since they tend to become outdated very soon.
+**Iteration 1**  
+In this first iteration we started by learning about how flutter works, start developing the report(product vision, elevator pitch, use cases, user stories and mockups) and we also started to implement our app. We implemented the home screen and the conference info screen of our app, and we also started to try establish communication with firebase.
+
+**Iteration 2**  
+In this second iteration we implemented a few more features in our app, such as the search screen and the refresh screen. We also started to try implement the login feature but we were not able to conclude this implementation.
+
+**Iteration 3**  
+In this iteration we ended the implementation of login, we also started to try to implement the acceptance tests and we inserted information in the report about the acceptance tests.
+
+**Iteration 4**  
+In this final iteration we implemented our final feature that is evaluate a conference, we implemented as well unit tests and we conclude the report inserting the remaing information(domain model, logical architecture, Physical architecture, prototype, implementation, test, configuration and change management and project management).
 
 ---
 ## Test
 
-There are several ways of documenting testing activities, and quality assurance in general, being the most common: a strategy, a plan, test case specifications, and test checklists.
+To test our code, we implement acceptance tests and unit tests.
 
-In this section it is only expected to include the following:
-* test plan describing the list of features to be tested and the testing methods and tools;
-* test case specifications to verify the functionalities, using unit tests and acceptance tests.
- 
-A good practice is to simplify this, avoiding repetitions, and automating the testing actions as much as possible.
+We focus our tests on:
+* Tap buttons and shows up another screen, in the case of acceptance tests;
+* Confirm class functions envolving conferences and respective filters.
+
+### Acceptance Tests
+To make this tests we used flutter_gherkin and we tested the following features:  
+* **Conference Info:** in this feature we tested if when we thouched a conference a conference info screen showed up.
+* **Evaluate Conference:** in this feature we tested if when we touched the evaluate conference button a screen showing the available conferences to evaluate showed up.
+* **Search Conference:** in this one we tested if when we touched the search button a screen showing the available filters showed up.
+
+### Unit Tests
+* **Conference data:** every parameter has what it supposed to have;
+* **Evaluate conference:** evaluation parameters are refreshed, so as voted users;
+* **Search conference:** filters are working as expected: only shows conferences within the applied filters.
+
+[Tests](/safe_meetings/test)
 
 ---
 ## Configuration and change management
 
-In order to be able manage project changes, we tried as much as possible to follow [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). 
-So when we wanted to fix some bug or add some new feature we used branches and we also created pull requests, the other elements could try it by themselves and then tell us something about it. If everyone agreed that the code was working as it should we merged it with main. 
-Here is a link to our [git flow](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/commits/main).
+In order to be able manage project changes, we tried as much as possible to follow [Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). 
+So when we wanted to fix some bug or add some new feature we used branches and we also created pull requests, the other elements could try it by themselves and then tell us something about it. If everyone agreed that the code was working as it should we merged it with main.
 
 ---
 

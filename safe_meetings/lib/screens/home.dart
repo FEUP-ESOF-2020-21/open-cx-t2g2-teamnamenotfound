@@ -240,3 +240,65 @@ Widget bottomAppBar(BuildContext context){
     ),
   );
 }
+
+class HomeMock {
+
+  HomeMock();
+
+  String titleFilter = "";
+  String localFilter = "";
+  int hygienFilter = 0;
+  int interestFilter = 0;
+  int securityFilter = 0;
+  int startDate = 0;
+  int endDate = -1;
+  List<ConferenceMock> conferences = [];
+
+  List<ConferenceMock> showConfs() {
+    List<ConferenceMock> confs = [];
+
+    for (int i = 0; i < this.conferences.length; i++) {
+      if ((this.conferences[i].getName() == this.titleFilter ||
+          this.titleFilter == "" ||
+          this.conferences[i]
+              .getName()
+              .toLowerCase()
+              .contains(this.titleFilter.toLowerCase())) &&
+          (this.conferences[i].getLocal() == this.localFilter ||
+              this.localFilter == "" ||
+              this.conferences[i]
+                  .getLocal()
+                  .toLowerCase()
+                  .contains(this.localFilter.toLowerCase())) &&
+          this.conferences[i].getHygien() >= this.hygienFilter &&
+          this.conferences[i].getSecurity() >= this.securityFilter &&
+          this.conferences[i].getInterest() >= this.interestFilter &&
+          parseDateToInt(this.conferences[i].getDate()) >= this.startDate &&
+          (this.endDate == -1 || this.endDate >= parseDateToInt(this.conferences[i].getDate()))) {
+        confs.add(this.conferences[i]);
+      }
+    }
+
+    return confs;
+  }
+
+  void resetFilters() {
+    this.titleFilter = "";
+    this.localFilter = "";
+    this.hygienFilter = 0;
+    this.interestFilter = 0;
+    this.securityFilter = 0;
+    this.startDate = 0;
+    this.endDate = -1;
+  }
+
+  void changeFilters(title, local, hygien, interest, security, start, end) {
+      this.titleFilter = title;
+      this.localFilter = local;
+      this.hygienFilter = hygien;
+      this.interestFilter = interest;
+      this.securityFilter = security;
+      this.startDate = parseDateToInt(start);
+      this.endDate = parseDateToInt(end);
+  }
+}

@@ -100,6 +100,18 @@ class Conference {
     return security;
   }
 
+  List<String> getUsers() {
+    return this._users;
+  }
+
+  List<String> getVotedUsers() {
+    return this._votedUsers;
+  }
+
+  List<String> getOrganizers() {
+    return this._organizers;
+  }
+
   //verifica se o user é participante desta conferencia
   bool isParticipant(String userEmail) {
     for (int i = 0; i < _users.length; i++) {
@@ -149,10 +161,10 @@ class Conference {
   }*/
 
   //colocar na base de dados os valores adquiridos na avaliação
-  void setEvaluation(hygieneEvaluate, securityEvaluate, interestEvaluate) {
+  void setEvaluation(hygieneEvaluate, interestEvaluate, securityEvaluate) {
     this._hygien.add(hygieneEvaluate);
-    this._security.add(securityEvaluate);
     this._interest.add(interestEvaluate);
+    this._security.add(securityEvaluate);
 
     databaseReference
         .child('conferences')
@@ -161,11 +173,11 @@ class Conference {
     databaseReference
         .child('conferences')
         .child(this._key)
-        .update({'security': this._security});
+        .update({'interest': this._interest});
     databaseReference
         .child('conferences')
         .child(this._key)
-        .update({'interest': this._interest});
+        .update({'security': this._security});
   }
 
   Map<String, dynamic> toJson() {
@@ -235,4 +247,21 @@ List<String> convertFromDynamicStringList(List<dynamic> source) {
   for (int i = 0; i < source.length; i++) dest.add(source[i]);
 
   return dest;
+}
+
+class ConferenceMock extends Conference {
+  ConferenceMock(name, description, date, hour, local, hygien, interest, security, users, votedUsers, code, organizers)
+          : super(name, description, date, hour, local, hygien, interest, security, users, votedUsers, code, organizers);
+
+  @override
+  void setEvaluation(hygieneEvaluate, interestEvaluate, securityEvaluate) {
+    this._hygien.add(hygieneEvaluate);
+    this._interest.add(interestEvaluate);
+    this._security.add(securityEvaluate);
+  }
+
+  @override
+  void vote(String usermail) {
+    this._votedUsers.add(usermail);
+  }
 }
