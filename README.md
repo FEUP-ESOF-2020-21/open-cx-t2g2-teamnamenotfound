@@ -76,6 +76,7 @@ During these rough times, do you wonder if an opportunity of personal and profes
 
   - **Aceptance Tests**
 
+  **Implemented**
   ```gherkin
     Feature: Conference Info
 
@@ -83,6 +84,11 @@ During these rough times, do you wonder if an opportunity of personal and profes
         Given the user is logged in with a valid account and the app is in home screen
         When I tap the "conference1Button" button
         Then "conferenceScreen" screen shows up
+
+    ```
+
+  **To be implemented in future**  
+  ```gherkin 
 
     Scenario: The app goes back to home screen when we tap arrow button
         Given the user is logged in with a valid account and the app in in conferenceScreen
@@ -99,6 +105,7 @@ During these rough times, do you wonder if an opportunity of personal and profes
 
   - *Acceptance tests*
 
+    **Implemented**
     ```gherkin
       Feature: Evaluate Conference
 
@@ -107,6 +114,10 @@ During these rough times, do you wonder if an opportunity of personal and profes
           When I tap the "evaluateButton" button
           Then "evaluateScreen" screen shows up
 
+    ```
+        
+    **To be implemented in future**
+    ```gherkin
       Scenario: The code screen shows up when the user tap in a conference to evaluate
           Given the user is logged in with a valid account and the app is in evaluate screen
           When I tap the "conference1Button"
@@ -138,6 +149,7 @@ During these rough times, do you wonder if an opportunity of personal and profes
 
   - **Acceptance tests**
 
+  **Implemented**
   ```gherkin
       Feature: Search Conference
 
@@ -145,6 +157,11 @@ During these rough times, do you wonder if an opportunity of personal and profes
           Given the user is logged in with a valid account and the app is in home screen
           When I tap the "searchButton" button
           Then "searchScreen" screen shows up
+
+  ```
+
+  **To be implemented in future**
+  ```gherkin
 
       Scenario: The home screen shows up and filters are saved when the user tap filter button
           Given the user is logged in with a valid account and the app is in search screen
@@ -221,9 +238,16 @@ We focus our tests on:
 
 ### Acceptance Tests
 To make this tests we used flutter_gherkin and we tested the following features:  
-* **Conference Info:** in this feature we tested if when we thouched a conference a conference info screen showed up.
-* **Evaluate Conference:** in this feature we tested if when we touched the evaluate conference button a screen showing the available conferences to evaluate showed up.
-* **Search Conference:** in this one we tested if when we touched the search button a screen showing the available filters showed up.
+* **Conference Info:** in this feature we tested if when we thouched a conference a conference info screen showed up. 
+  - User Story: [Conference Info](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/issues/3).
+* **Evaluate Conference:** in this feature we tested if when we touched the evaluate conference button a screen showing the available conferences to evaluate showed up. 
+  - User Story: [Evaluate Conference](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/issues/7).
+* **Search Conference:** in this one we tested if when we touched the search button a screen showing the available filters showed up. 
+
+  - User Story: [Search Conference](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/issues/8).
+
+We only implemented one acceptance test per user story(specified above) because it took too much time and was very difficult understand how acceptance tests worked in flutter.
+There are still some more tests that could be made to test our user stories in future, some of them are specified above in each user story.
 
 ### Unit Tests
 * **Conference data:** every parameter has what it supposed to have;
