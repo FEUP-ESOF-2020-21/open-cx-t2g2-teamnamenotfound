@@ -182,8 +182,15 @@ To make this tests we used flutter_gherkin and we tested the following features:
 * **Evaluate conference:** evaluation parameters are refreshed, so as voted users;
 * **Search conference:** filters are working as expected: only shows conferences within the applied filters.
 
-[Tests](/safe_meetings/test)
-
+### How to test
+* Unit Tests are running automatically on [GitHub Actions](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/actions).
+* Unfortunately, the pipeline running the gherkin acceptance tests are not running because they need an emulator to test. To run this tests, we suggest you to:
+  * git clone https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound.git
+  * open the project on Android Studio/Visual Studio Code (assuming you already have all the tools to run the project)
+  * open any emulator
+  * confirm you are on safe_meetings folder, otherwise go there
+  * run the command: flutter test test/app_test.dart
+  
 ---
 ## Configuration and change management
 
