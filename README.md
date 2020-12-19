@@ -83,6 +83,11 @@ During these rough times, do you wonder if an opportunity of personal and profes
         Given the user is logged in with a valid account and the app is in home screen
         When I tap the "conference1Button" button
         Then "conferenceScreen" screen shows up
+
+    Scenario: The app goes back to home screen when we tap arrow button
+        Given the user is logged in with a valid account and the app in in conferenceScreen
+        When I tap the "arrowButton" button
+        Then "homeScreen" shows up
   ```
 
   - **Value and effort**: M
@@ -101,6 +106,27 @@ During these rough times, do you wonder if an opportunity of personal and profes
           Given the user is logged in with a valid account and the app is in home screen
           When I tap the "evaluateButton" button
           Then "evaluateScreen" screen shows up
+
+      Scenario: The code screen shows up when the user tap in a conference to evaluate
+          Given the user is logged in with a valid account and the app is in evaluate screen
+          When I tap the "conference1Button"
+          Then "codeScreen" shows up
+
+      Scenario: The code screen remains when the user inputs the wrong code
+          Given the user is logged in with a valid account and the app is in code screen
+          When I input the wrongCode and tap "submitButton"
+          Then "codeScreen" remains
+
+      Scenario: The form screen shows up when the user inputs the correct code
+          Given the user is logged in with a valid account and the app is in code screen
+          When I input the correctCode and tap "submitButton"
+          Then "formScreen" shows up
+
+      Scenario: The evaluate screen shows up when the user submits the form
+          Given the user is logged in with a valid account and the app is in form screen
+          When I tap the "submitButton"
+          Then the evaluations are saved and "evaluateScreen" shows up
+
     ```
 
   - **Value and effort**: L
@@ -119,6 +145,16 @@ During these rough times, do you wonder if an opportunity of personal and profes
           Given the user is logged in with a valid account and the app is in home screen
           When I tap the "searchButton" button
           Then "searchScreen" screen shows up
+
+      Scenario: The home screen shows up and filters are saved when the user tap filter button
+          Given the user is logged in with a valid account and the app is in search screen
+          When I tap the "filterButton" button
+          Then "homeScreen" screen shows up and the filters are saved
+
+      Scenario: The app goes back to home screen when we tap arrow button and don't save the filters
+        Given the user is logged in with a valid account and the app in in filterScreen
+        When I tap the "arrowButton" button
+        Then "homeScreen" shows up and the filters are not saved
     ```
 
   - **Value and effort**: L
