@@ -141,9 +141,16 @@ A participant can evaluate a conference only once.
 ## Architecture and Design
 
 ### Logical architecture
+The user starts out by being asked to login with google before he can access further features of the application, we decided to use this in order to minimize the load on our database and other possible issues that could be caused by mass production of fake bot accounts.
+
+After that is complete we load the conferences and display them in a friendly way, you can pick from the displayed conferences or search and filter the desired one, this is very useful when there are a lot of conferences on the home screen otherwise you would have to scroll which would be very impractical. After going to a conference you will receive a code which can be used to enter our 'evaluate conference' feature, when you're done your review will be stored and used to calculate the average security,hygien and interest of that conference along with the other reviews of people who attended.
+
 ![Logical Architecture](/images/logical_architecture.png)
 
+
 ### Physical architecture
+The physical architecture consists of an android device (phone,tablet,etc..) which interacts with firebase servers in order to access our databases, this is used to keep the displayed data on the device updated and store further useful information.
+
 ![Physical Architecture](/images/physical_architecture.png)
 
 
@@ -187,8 +194,15 @@ To make this tests we used flutter_gherkin and we tested the following features:
 * **Evaluate conference:** evaluation parameters are refreshed, so as voted users;
 * **Search conference:** filters are working as expected: only shows conferences within the applied filters.
 
-[Tests](/safe_meetings/test)
-
+### How to test
+* Unit Tests are running automatically on [GitHub Actions](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/actions).
+* Unfortunately, the pipeline running the gherkin acceptance tests are not running because they need an emulator to test. To run this tests, we suggest you to:
+  * git clone https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound.git
+  * open the project on Android Studio/Visual Studio Code (assuming you already have all the tools to run the project)
+  * open any emulator
+  * confirm you are on safe_meetings folder, otherwise go there
+  * run the command: flutter test test/app_test.dart
+  
 ---
 ## Configuration and change management
 
