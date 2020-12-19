@@ -76,9 +76,14 @@ During these rough times, do you wonder if an opportunity of personal and profes
 
   - **Aceptance Tests**
 
-    - Verify if when the user taps in a conference, all the conference info should show up.
-    ![Conference Info Acceptance Tests](/images/confInfoAcceptTest.png)
-    - Veirfy if when the user taps the arrow back the app goes to home.
+  ```gherkin
+    Feature: Conference Info
+
+    Scenario: The conference info screen shows up when a conference is tapped
+        Given the user is logged in with a valid account and the app is in home screen
+        When I tap the "conference1Button" button
+        Then "conferenceScreen" screen shows up
+  ```
 
   - **Value and effort**: M
 
@@ -89,11 +94,14 @@ During these rough times, do you wonder if an opportunity of personal and profes
 
   - *Acceptance tests*
 
-    - Verify if when the user taps evaluate conferences button the evaluate screen shows up.
-    ![Evaluate Conference Acceptance Tests](/images/evalConfAcceptTest.png)
-    - Verify if when the user inputs the correct code a window asking for the evaluation shows up.
-    - Verify if when the user inputs the wrong code the app should remain in the same window.
-    - Veirfy if when the user taps submit button all the evaluations parameters are sent to the database.
+    ```gherkin
+      Feature: Evaluate Conference
+
+      Scenario: The evaluate screen shows up when the user tap evaluate conferences button
+          Given the user is logged in with a valid account and the app is in home screen
+          When I tap the "evaluateButton" button
+          Then "evaluateScreen" screen shows up
+    ```
 
   - **Value and effort**: L
 
@@ -104,10 +112,14 @@ During these rough times, do you wonder if an opportunity of personal and profes
 
   - **Acceptance tests**
 
-  - Verify if when the user taps the search button, a window with several filters shows up.
-  ![Search Conference Acceptance Tests](/images/searchConfAcceptTest.png)
-  - Veirfy if when the user taps the filter button all the filters are sent to home.
-  - Veirfy if when the user taps the arrow back the app goes to home without changing the current filters.
+  ```gherkin
+      Feature: Search Conference
+
+      Scenario: The search screen shows up when the user tap search button
+          Given the user is logged in with a valid account and the app is in home screen
+          When I tap the "searchButton" button
+          Then "searchScreen" screen shows up
+    ```
 
   - **Value and effort**: L
 
