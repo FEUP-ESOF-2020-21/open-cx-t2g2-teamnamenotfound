@@ -76,9 +76,25 @@ During these rough times, do you wonder if an opportunity of personal and profes
 
   - **Aceptance Tests**
 
-    - Verify if when the user taps in a conference, all the conference info should show up.
-    ![Conference Info Acceptance Tests](/images/confInfoAcceptTest.png)
-    - Veirfy if when the user taps the arrow back the app goes to home.
+  **Implemented**
+  ```gherkin
+    Feature: Conference Info
+
+    Scenario: The conference info screen shows up when a conference is tapped
+        Given the user is logged in with a valid account and the app is in home screen
+        When I tap the "conference1Button" button
+        Then "conferenceScreen" screen shows up
+
+    ```
+
+  **To be implemented in future**  
+  ```gherkin 
+
+    Scenario: The app goes back to home screen when we tap arrow button
+        Given the user is logged in with a valid account and the app in in conferenceScreen
+        When I tap the "arrowButton" button
+        Then "homeScreen" shows up
+  ```
 
   - **Value and effort**: M
 
@@ -89,11 +105,40 @@ During these rough times, do you wonder if an opportunity of personal and profes
 
   - *Acceptance tests*
 
-    - Verify if when the user taps evaluate conferences button the evaluate screen shows up.
-    ![Evaluate Conference Acceptance Tests](/images/evalConfAcceptTest.png)
-    - Verify if when the user inputs the correct code a window asking for the evaluation shows up.
-    - Verify if when the user inputs the wrong code the app should remain in the same window.
-    - Veirfy if when the user taps submit button all the evaluations parameters are sent to the database.
+    **Implemented**
+    ```gherkin
+      Feature: Evaluate Conference
+
+      Scenario: The evaluate screen shows up when the user tap evaluate conferences button
+          Given the user is logged in with a valid account and the app is in home screen
+          When I tap the "evaluateButton" button
+          Then "evaluateScreen" screen shows up
+
+    ```
+        
+    **To be implemented in future**
+    ```gherkin
+      Scenario: The code screen shows up when the user tap in a conference to evaluate
+          Given the user is logged in with a valid account and the app is in evaluate screen
+          When I tap the "conference1Button"
+          Then "codeScreen" shows up
+
+      Scenario: The code screen remains when the user inputs the wrong code
+          Given the user is logged in with a valid account and the app is in code screen
+          When I input the wrongCode and tap "submitButton"
+          Then "codeScreen" remains
+
+      Scenario: The form screen shows up when the user inputs the correct code
+          Given the user is logged in with a valid account and the app is in code screen
+          When I input the correctCode and tap "submitButton"
+          Then "formScreen" shows up
+
+      Scenario: The evaluate screen shows up when the user submits the form
+          Given the user is logged in with a valid account and the app is in form screen
+          When I tap the "submitButton"
+          Then the evaluations are saved and "evaluateScreen" shows up
+
+    ```
 
   - **Value and effort**: L
 
@@ -104,10 +149,30 @@ During these rough times, do you wonder if an opportunity of personal and profes
 
   - **Acceptance tests**
 
-  - Verify if when the user taps the search button, a window with several filters shows up.
-  ![Search Conference Acceptance Tests](/images/searchConfAcceptTest.png)
-  - Veirfy if when the user taps the filter button all the filters are sent to home.
-  - Veirfy if when the user taps the arrow back the app goes to home without changing the current filters.
+  **Implemented**
+  ```gherkin
+      Feature: Search Conference
+
+      Scenario: The search screen shows up when the user tap search button
+          Given the user is logged in with a valid account and the app is in home screen
+          When I tap the "searchButton" button
+          Then "searchScreen" screen shows up
+
+  ```
+
+  **To be implemented in future**
+  ```gherkin
+
+      Scenario: The home screen shows up and filters are saved when the user tap filter button
+          Given the user is logged in with a valid account and the app is in search screen
+          When I tap the "filterButton" button
+          Then "homeScreen" screen shows up and the filters are saved
+
+      Scenario: The app goes back to home screen when we tap arrow button and don't save the filters
+        Given the user is logged in with a valid account and the app in in filterScreen
+        When I tap the "arrowButton" button
+        Then "homeScreen" shows up and the filters are not saved
+    ```
 
   - **Value and effort**: L
 
@@ -173,9 +238,16 @@ We focus our tests on:
 
 ### Acceptance Tests
 To make this tests we used flutter_gherkin and we tested the following features:  
-* **Conference Info:** in this feature we tested if when we thouched a conference a conference info screen showed up.
-* **Evaluate Conference:** in this feature we tested if when we touched the evaluate conference button a screen showing the available conferences to evaluate showed up.
-* **Search Conference:** in this one we tested if when we touched the search button a screen showing the available filters showed up.
+* **Conference Info:** in this feature we tested if when we thouched a conference a conference info screen showed up. 
+  - User Story: [Conference Info](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/issues/3).
+* **Evaluate Conference:** in this feature we tested if when we touched the evaluate conference button a screen showing the available conferences to evaluate showed up. 
+  - User Story: [Evaluate Conference](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/issues/7).
+* **Search Conference:** in this one we tested if when we touched the search button a screen showing the available filters showed up. 
+
+  - User Story: [Search Conference](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/issues/8).
+
+We only implemented one acceptance test per user story(specified above) because it took too much time and was very difficult understand how acceptance tests worked in flutter.
+There are still some more tests that could be made to test our user stories in future, some of them are specified above in each user story.
 
 ### Unit Tests
 * **Conference data:** every parameter has what it supposed to have;
