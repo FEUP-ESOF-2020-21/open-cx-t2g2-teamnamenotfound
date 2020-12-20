@@ -71,8 +71,8 @@ During these rough times, do you wonder if an opportunity of personal and profes
 * As a user, I want to be able to see all the conferences info so that I can choose the best option.
   - *Mockup*
 
-    ![Initial Screen](/images/mockup_initial_screen.png)
-    ![Info Screen](/images/mockup_info_screen.png)
+    ![Initial Screen](/images/mockup_initial.png)
+    ![Info Screen](/images/mockup_info.png)
 
   - **Aceptance Tests**
 
@@ -101,7 +101,7 @@ During these rough times, do you wonder if an opportunity of personal and profes
 * As a user, I want to be able to evaluate the conference so that users are aware of its condition.
   - *Mockup*
 
-    ![Evaluate Screen](/images/mockup_evaluate_screen.png)
+    ![Evaluate Screen](/images/mockup_evaluate.png)
 
   - *Acceptance tests*
 
@@ -145,7 +145,7 @@ During these rough times, do you wonder if an opportunity of personal and profes
 * As a user, I want to be able to search for a conference by their rating in each parameter, so that I'm aware about the conference conditions.
   - *Mockup*
   
-    ![Search Screen](/images/mockup_search_screen.png)
+    ![Search Screen](/images/mockup_search.png)
 
   - **Acceptance tests**
 
