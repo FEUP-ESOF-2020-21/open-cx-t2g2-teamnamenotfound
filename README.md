@@ -202,7 +202,7 @@ After that is complete we load the conferences and display them in a friendly wa
 
 
 ### Physical architecture
-The physical architecture consists of an android device (phone,tablet,etc..) which interacts with firebase servers in order to access our databases, this is used to keep the displayed data on the device updated and store further useful information.
+The physical architecture consists of an android device (phone,tablet,etc..) which interacts with firebase servers in order to access our databases, this is used to keep the displayed data on the device updated and store new data when a participant evaluates a conference.
 
 ![Physical Architecture](/images/physical_architecture.png)
 
