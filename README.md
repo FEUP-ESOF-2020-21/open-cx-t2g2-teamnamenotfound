@@ -71,43 +71,108 @@ During these rough times, do you wonder if an opportunity of personal and profes
 * As a user, I want to be able to see all the conferences info so that I can choose the best option.
   - *Mockup*
 
-    ![Initial Screen](/images/mockup_initial_screen.png)
-    ![Info Screen](/images/mockup_info_screen.png)
+    ![Initial Screen](/images/mockup_initial.png)
+    ![Info Screen](/images/mockup_info.png)
 
   - **Aceptance Tests**
 
-    - Verify if when the user taps in a conference, all the conference info should show up.
-    ![Conference Info Acceptance Tests](/images/confInfoAcceptTest.png)
-    - Veirfy if when the user taps the arrow back the app goes to home.
+  **Implemented**
+  ```gherkin
+    Feature: Conference Info
+
+    Scenario: The conference info screen shows up when a conference is tapped
+        Given the user is logged in with a valid account and the app is in home screen
+        When I tap the "conference1Button" button
+        Then "conferenceScreen" screen shows up
+
+    ```
+
+  **To be implemented in future**  
+  ```gherkin 
+
+    Scenario: The app goes back to home screen when we tap arrow button
+        Given the user is logged in with a valid account and the app in in conferenceScreen
+        When I tap the "arrowButton" button
+        Then "homeScreen" shows up
+  ```
 
   - **Value and effort**: M
 
 * As a user, I want to be able to evaluate the conference so that users are aware of its condition.
   - *Mockup*
 
-    ![Evaluate Screen](/images/mockup_evaluate_screen.png)
+    ![Evaluate Screen](/images/mockup_evaluate.png)
 
   - *Acceptance tests*
 
-    - Verify if when the user taps evaluate conferences button the evaluate screen shows up.
-    ![Evaluate Conference Acceptance Tests](/images/evalConfAcceptTest.png)
-    - Verify if when the user inputs the correct code a window asking for the evaluation shows up.
-    - Verify if when the user inputs the wrong code the app should remain in the same window.
-    - Veirfy if when the user taps submit button all the evaluations parameters are sent to the database.
+    **Implemented**
+    ```gherkin
+      Feature: Evaluate Conference
+
+      Scenario: The evaluate screen shows up when the user tap evaluate conferences button
+          Given the user is logged in with a valid account and the app is in home screen
+          When I tap the "evaluateButton" button
+          Then "evaluateScreen" screen shows up
+
+    ```
+        
+    **To be implemented in future**
+    ```gherkin
+      Scenario: The code screen shows up when the user tap in a conference to evaluate
+          Given the user is logged in with a valid account and the app is in evaluate screen
+          When I tap the "conference1Button"
+          Then "codeScreen" shows up
+
+      Scenario: The code screen remains when the user inputs the wrong code
+          Given the user is logged in with a valid account and the app is in code screen
+          When I input the wrongCode and tap "submitButton"
+          Then "codeScreen" remains
+
+      Scenario: The form screen shows up when the user inputs the correct code
+          Given the user is logged in with a valid account and the app is in code screen
+          When I input the correctCode and tap "submitButton"
+          Then "formScreen" shows up
+
+      Scenario: The evaluate screen shows up when the user submits the form
+          Given the user is logged in with a valid account and the app is in form screen
+          When I tap the "submitButton"
+          Then the evaluations are saved and "evaluateScreen" shows up
+
+    ```
 
   - **Value and effort**: L
 
 * As a user, I want to be able to search for a conference by their rating in each parameter, so that I'm aware about the conference conditions.
   - *Mockup*
   
-    ![Search Screen](/images/mockup_search_screen.png)
+    ![Search Screen](/images/mockup_search.png)
 
   - **Acceptance tests**
 
-  - Verify if when the user taps the search button, a window with several filters shows up.
-  ![Search Conference Acceptance Tests](/images/searchConfAcceptTest.png)
-  - Veirfy if when the user taps the filter button all the filters are sent to home.
-  - Veirfy if when the user taps the arrow back the app goes to home without changing the current filters.
+  **Implemented**
+  ```gherkin
+      Feature: Search Conference
+
+      Scenario: The search screen shows up when the user tap search button
+          Given the user is logged in with a valid account and the app is in home screen
+          When I tap the "searchButton" button
+          Then "searchScreen" screen shows up
+
+  ```
+
+  **To be implemented in future**
+  ```gherkin
+
+      Scenario: The home screen shows up and filters are saved when the user tap filter button
+          Given the user is logged in with a valid account and the app is in search screen
+          When I tap the "filterButton" button
+          Then "homeScreen" screen shows up and the filters are saved
+
+      Scenario: The app goes back to home screen when we tap arrow button and don't save the filters
+        Given the user is logged in with a valid account and the app in in filterScreen
+        When I tap the "arrowButton" button
+        Then "homeScreen" shows up and the filters are not saved
+    ```
 
   - **Value and effort**: L
 
@@ -137,7 +202,7 @@ After that is complete we load the conferences and display them in a friendly wa
 
 
 ### Physical architecture
-The physical architecture consists of an android device (phone,tablet,etc..) which interacts with firebase servers in order to access our databases, this is used to keep the displayed data on the device updated and store further useful information.
+The physical architecture consists of an android device (phone,tablet,etc..) which interacts with firebase servers in order to access our databases, this is used to keep the displayed data on the device updated and store new data when a participant evaluates a conference.
 
 ![Physical Architecture](/images/physical_architecture.png)
 
@@ -173,17 +238,31 @@ We focus our tests on:
 
 ### Acceptance Tests
 To make this tests we used flutter_gherkin and we tested the following features:  
-* **Conference Info:** in this feature we tested if when we thouched a conference a conference info screen showed up.
-* **Evaluate Conference:** in this feature we tested if when we touched the evaluate conference button a screen showing the available conferences to evaluate showed up.
-* **Search Conference:** in this one we tested if when we touched the search button a screen showing the available filters showed up.
+* **Conference Info:** in this feature we tested if when we thouched a conference a conference info screen showed up. 
+  - User Story: [Conference Info](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/issues/3).
+* **Evaluate Conference:** in this feature we tested if when we touched the evaluate conference button a screen showing the available conferences to evaluate showed up. 
+  - User Story: [Evaluate Conference](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/issues/7).
+* **Search Conference:** in this one we tested if when we touched the search button a screen showing the available filters showed up. 
+
+  - User Story: [Search Conference](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/issues/8).
+
+We only implemented one acceptance test per user story(specified above) because it took too much time and was very difficult understand how acceptance tests worked in flutter.
+There are still some more tests that could be made to test our user stories in future, some of them are specified above in each user story.
 
 ### Unit Tests
 * **Conference data:** every parameter has what it supposed to have;
 * **Evaluate conference:** evaluation parameters are refreshed, so as voted users;
 * **Search conference:** filters are working as expected: only shows conferences within the applied filters.
 
-[Tests](/safe_meetings/test)
-
+### How to test
+* Unit Tests are running automatically on [GitHub Actions](https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound/actions).
+* Unfortunately, the pipeline running the gherkin acceptance tests are not running because they need an emulator to test. To run this tests, we suggest you to:
+  * git clone https://github.com/FEUP-ESOF-2020-21/open-cx-t2g2-teamnamenotfound.git
+  * open the project on Android Studio/Visual Studio Code (assuming you already have all the tools to run the project)
+  * open any emulator
+  * confirm you are on safe_meetings folder, otherwise go there
+  * run the command: flutter test test/app_test.dart
+  
 ---
 ## Configuration and change management
 
